@@ -57,7 +57,15 @@ class AuthController extends Controller
     {
  
       if(Auth::check()){
-        return view('dashboard/adminDashboard');
+        $user = auth()->user();
+        if (($user->categary)=="Admin"){
+          return view('dashboard/adminDashboard');
+        }else if(($user->categary)=="Seller"){
+          return view('dashboard/sellerDashboard');
+        }else{
+          return view('dashboard/buyerDashboard');
+        }
+        
       }
        return Redirect::to("login")->withSuccess('Opps! You do not have access');
     }
