@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-Use App\Models\User;
+Use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -50,14 +50,14 @@ class AuthController extends Controller
  
         $check = $this->create($data);
        
-        return Redirect::to("dashboard/dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
      
     public function dashboard()
     {
  
       if(Auth::check()){
-        return view('dashboard/dashboard');
+        return view('dashboard/adminDashboard');
       }
        return Redirect::to("login")->withSuccess('Opps! You do not have access');
     }
@@ -67,6 +67,10 @@ class AuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
+        'nic' => $data['nic'],
+        'address' => $data['address'],
+        'number' => $data['number'],
+        'categary'=>$data['categary'],
         'password' => Hash::make($data['password'])
       ]);
     }

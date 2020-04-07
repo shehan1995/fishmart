@@ -58,6 +58,18 @@
  
                 </div> 
                 <div class="form-label-group">
+                  <select name='categary'>
+                    <option value='Seller'>Seller</option>
+                    <option value='Buyer'>Buyer</option>
+                  </select>
+                  <label for="inputCategary">Select Categary</label>
+ 
+                  @if ($errors->has('number'))
+                  <span class="error">{{ $errors->first('number') }}</span>
+                  @endif       
+ 
+                </div> 
+                <div class="form-label-group">
                   <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
                   <label for="inputPassword">Password</label>
                    

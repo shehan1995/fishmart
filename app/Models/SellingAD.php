@@ -15,7 +15,7 @@ class SellingAD extends Model
     ];
 
     public function user() {
-        return $this->belongsTo('App\Models\Users');
+        return $this->belongsTo('App\User');
     }
     public function fish() {
         return $this->belongsTo('App\Models\Fish');
