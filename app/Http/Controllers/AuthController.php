@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-Use App\User;
+Use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
@@ -41,7 +41,8 @@ class AuthController extends Controller
     {  
         request()->validate([
         'name' => 'required',
-        'email' => 'required|email|unique:users',
+        'nic'=>'required|unique:users',
+        'email' => 'required|email',
         'password' => 'required|min:6',
         ]);
          
@@ -49,14 +50,14 @@ class AuthController extends Controller
  
         $check = $this->create($data);
        
-        return Redirect::to("dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return Redirect::to("dashboard/dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
      
     public function dashboard()
     {
  
       if(Auth::check()){
-        return view('dashboard');
+        return view('dashboard/dashboard');
       }
        return Redirect::to("login")->withSuccess('Opps! You do not have access');
     }
