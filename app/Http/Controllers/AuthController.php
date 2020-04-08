@@ -19,7 +19,7 @@ class AuthController extends Controller
  
     public function registration()
     {
-        return view('registration');
+        return view('register');
     }
      
     public function postLogin(Request $request)
@@ -45,9 +45,24 @@ class AuthController extends Controller
         'email' => 'required|email',
         'password' => 'required|min:6',
         ]);
-         
+//        $filename='';
+//        if ($request->hasFile('imgInp')) {
+//            $file = $request->file('imgInp');
+//            $extension = $file->getClientOriginalExtension();
+//            $filename = time() . '.' . $extension;
+//            $file->move('uploads/user/image/',$filename);
+//        }else{
+//            echo "noFIle", '<br>';
+//            echo $request->input('image'), '<br>';
+//        }
+//        echo $filename, '<br>';
+//        echo "space", '<br>';
         $data = $request->all();
- 
+//        array_push($data,$filename);
+//        foreach($data as $result) {
+//            echo $result, '<br>';
+//        }
+//        echo $data['imgInp'], '<br>';
         $check = $this->create($data);
        
         return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
@@ -72,6 +87,7 @@ class AuthController extends Controller
  
     public function create(array $data)
     {
+
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
@@ -79,6 +95,7 @@ class AuthController extends Controller
         'address' => $data['address'],
         'number' => $data['number'],
         'categary'=>$data['categary'],
+        'image'=>$data['imgInp'],
         'password' => Hash::make($data['password'])
       ]);
     }
