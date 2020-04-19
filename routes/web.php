@@ -22,5 +22,11 @@ Route::get('login', 'AuthController@index');
 Route::post('post-login', 'AuthController@postLogin'); 
 Route::get('registration', 'AuthController@registration');
 Route::post('post-registration', 'AuthController@postRegistration'); 
-Route::get('dashboard', 'AuthController@dashboard'); 
+Route::get('dashboard', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
+Route::get('dashboard/profile-edit','SellerController@editProfile');
+Route::post('dashboard/post-editProfile','SellerController@postEditProfile');
+
+Route::get('dashboard/admin/fish','AdminController@createFish');
+Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
+

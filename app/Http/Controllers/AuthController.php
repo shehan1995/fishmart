@@ -19,17 +19,17 @@ class AuthController extends Controller
  
     public function registration()
     {
-        return view('register');
+        return view('registration');
     }
      
     public function postLogin(Request $request)
     {
         request()->validate([
-        'email' => 'required',
+        'nic' => 'required',
         'password' => 'required',
         ]);
  
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('nic', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->intended('dashboard');
@@ -45,24 +45,9 @@ class AuthController extends Controller
         'email' => 'required|email',
         'password' => 'required|min:6',
         ]);
-//        $filename='';
-//        if ($request->hasFile('imgInp')) {
-//            $file = $request->file('imgInp');
-//            $extension = $file->getClientOriginalExtension();
-//            $filename = time() . '.' . $extension;
-//            $file->move('uploads/user/image/',$filename);
-//        }else{
-//            echo "noFIle", '<br>';
-//            echo $request->input('image'), '<br>';
-//        }
-//        echo $filename, '<br>';
-//        echo "space", '<br>';
+
         $data = $request->all();
-//        array_push($data,$filename);
-//        foreach($data as $result) {
-//            echo $result, '<br>';
-//        }
-//        echo $data['imgInp'], '<br>';
+
         $check = $this->create($data);
        
         return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
@@ -70,17 +55,17 @@ class AuthController extends Controller
      
     public function dashboard()
     {
- 
+
       if(Auth::check()){
         $user = auth()->user();
         if (($user->categary)=="Admin"){
-          return view('dashboard/adminDashboard');
+          return view('dashboard/admin/adminDashboard');
         }else if(($user->categary)=="Seller"){
           return view('dashboard/sellerBody');
         }else{
           return view('dashboard/buyerDashboard');
         }
-        
+
       }
        return Redirect::to("login")->withSuccess('Opps! You do not have access');
     }
@@ -95,7 +80,6 @@ class AuthController extends Controller
         'address' => $data['address'],
         'number' => $data['number'],
         'categary'=>$data['categary'],
-        'image'=>$data['imgInp'],
         'password' => Hash::make($data['password'])
       ]);
     }

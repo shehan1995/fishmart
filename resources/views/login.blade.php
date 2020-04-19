@@ -17,11 +17,11 @@
                  {{ csrf_field() }}
  
                 <div class="form-label-group">
-                  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" >
-                  <label for="inputEmail">Email address</label>
+                  <input type="nic" name="nic" id="inputNIC" class="form-control" placeholder="NIC Number" >
+                  <label for="inputNIC">NIC Number</label>
  
-                  @if ($errors->has('email'))
-                  <span class="error">{{ $errors->first('email') }}</span>
+                  @if ($errors->has('nic'))
+                  <span class="error">{{ $errors->first('nic') }}</span>
                   @endif    
                 </div> 
  
