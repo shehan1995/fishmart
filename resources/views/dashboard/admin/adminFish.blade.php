@@ -20,11 +20,11 @@
 
                                 </div>
                                 <div class="form-label-group">
-                                    <input type="number" id="inputPrice" name="price" class="form-control" placeholder="Average Price" autofocus>
+                                    <input type="number" id="inputPrice" name="avg_price" class="form-control" placeholder="Average Price" autofocus>
                                     <label for="inputPrice">Average Price</label>
 
-                                    @if ($errors->has('price'))
-                                        <span class="error">{{ $errors->first('price') }}</span>
+                                    @if ($errors->has('avg_price'))
+                                        <span class="error">{{ $errors->first('avg_price') }}</span>
                                     @endif
 
                                 </div>

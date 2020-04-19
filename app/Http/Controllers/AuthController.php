@@ -61,9 +61,9 @@ class AuthController extends Controller
         if (($user->categary)=="Admin"){
           return view('dashboard/admin/adminDashboard');
         }else if(($user->categary)=="Seller"){
-          return view('dashboard/sellerBody');
+          return view('dashboard/seller/sellerBody');
         }else{
-          return view('dashboard/buyerDashboard');
+          return view('dashboard/buyer/buyerDashboard');
         }
 
       }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fish;
+use App\Models\SellingAD;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class SellerController extends Controller
@@ -88,13 +91,10 @@ class SellerController extends Controller
     public function editProfile(){
         $user = auth()->user();
 
-        return view('dashboard/sellerEditProfile',compact('user'));
+        return view('dashboard/seller/sellerEditProfile',compact('user'));
     }
 
     public function postEditProfile(Request $request){
-
-
-
         try {
              $user = auth()->user();
             request()->validate([
@@ -110,15 +110,40 @@ class SellerController extends Controller
             return $e->getMessage();
         }
 
-
-
-
-       // dump($data);
-//
-//        //$check = $this->update($data,$user);
-//        $usr = Show::findOrFail($user->id);
-//        dump($usr);
-//        return view('dashboard/sellerEditProfile',compact('user'));
         return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+    }
+
+    public function createAdd(){
+        $fish =DB::table('fish')->get();
+        dump($fish);
+        return view('dashboard/seller/sellerAdd',compact('fish'));
+    }
+
+    public function postCreateAdd(Request $request){
+        try {
+            $user = auth()->user();
+
+            $data = $request->all();
+            $data['users_id'] = $user->id;
+            $data['status'] = 'pending';
+            dump($data);
+
+            $TotalFish = DB::table('fish')->where('id', $data['fish_id'])->first();
+            $totalFishAmount = $data['amount'] + $TotalFish->amount;
+            dump($totalFishAmount);
+            $affected = DB::table('fish')
+                ->where('id', $data['fish_id'])
+                ->update(['amount' => $totalFishAmount]);
+
+            SellingAD::create($data);
+
+
+            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+
+
     }
 }

@@ -30,3 +30,11 @@ Route::post('dashboard/post-editProfile','SellerController@postEditProfile');
 Route::get('dashboard/admin/fish','AdminController@createFish');
 Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
 
+Route::get('dashboard/seller/createAdd','SellerController@createAdd');
+Route::post('dashboard/seller/post-createAdd','SellerController@postCreateAdd');
+
+Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
+Route::post('dashboard/buyer/post-createAdd','BuyerController@postCreateAdd');
+Route::get('dashboard/buyer/viewSellingAdds','BuyerController@viewSellingAdds');
+Route::get('dashboard/buyer/setOrder/{sellingId}','BuyerController@setOrder')->name('setOrder');
+

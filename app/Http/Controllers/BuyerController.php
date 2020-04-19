@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Fish;
+use App\Models\BuyingAD;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
-class AdminController extends Controller
+class BuyerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -84,23 +85,53 @@ class AdminController extends Controller
         //
     }
 
-    public function createFish(){
-        return view('dashboard/admin/adminFish');
-    }
-    public function postCreateFish(Request $request)
-    {
 
+    public function createAdd(){
+        $fish =DB::table('fish')->get();
+        dump($fish);
+        return view('dashboard/buyer/buyerAdd',compact('fish'));
+    }
+
+    public function postCreateAdd(Request $request){
         try {
-            request()->validate([
-                'name' => 'required',
-                'avg_price'=>'required'
-            ]);
+            $user = auth()->user();
+
             $data = $request->all();
-            $fish = Fish::create($data);
-            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
+            $data['users_id'] = $user->id;
+            $data['status'] = 'pending';
+            dump($data);
+
+            $TotalFish = DB::table('fish')->where('id', $data['fish_id'])->first();
+
+
+            BuyingAD::create($data);
+
+
+            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
 
             return $e->getMessage();
         }
+
+
+    }
+
+    public function viewSellingAdds(){
+        $sellingAdds = DB::table('selling_a_d_s')->where('status','pending')->get();
+        foreach ($sellingAdds as $sellingAdd){
+            $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
+            $sellingAdd->fish_name = $fishName->name;
+        }
+        dump($sellingAdds);
+       return view('dashboard/buyer/viewSellingAdds',compact('sellingAdds'));
+    }
+
+    public function setOrder($sellingId){
+        $sellingAdd = DB::table('selling_a_d_s')->where('id',$sellingId)->first();
+        $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
+        $sellingAdd->fish_name = $fishName->name;
+        dump($sellingAdd);
+        return view('dashboard/buyer/setOrder',compact('sellingAdd'));
+
     }
 }

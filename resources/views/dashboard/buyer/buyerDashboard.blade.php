@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SELLER <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BUYER <sup>2</sup></div>
       </a>
 
       <!-- Divider -->
@@ -121,11 +121,18 @@
           <span>Charts</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Create ADD -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{url('dashboard/buyer/createAdd')}}">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Create Advertisement</span></a>
+      </li>
+
+      <!-- Nav Item - View selling adds -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('dashboard/buyer/viewSellingAdds')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Selling Advertisements</span></a>
       </li>
 
       <!-- Divider -->
