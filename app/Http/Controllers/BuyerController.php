@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BuyingAD;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -99,7 +100,6 @@ class BuyerController extends Controller
             $data = $request->all();
             $data['users_id'] = $user->id;
             $data['status'] = 'pending';
-            dump($data);
 
             $TotalFish = DB::table('fish')->where('id', $data['fish_id'])->first();
 
@@ -122,7 +122,6 @@ class BuyerController extends Controller
             $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
             $sellingAdd->fish_name = $fishName->name;
         }
-        dump($sellingAdds);
        return view('dashboard/buyer/viewSellingAdds',compact('sellingAdds'));
     }
 
@@ -130,8 +129,43 @@ class BuyerController extends Controller
         $sellingAdd = DB::table('selling_a_d_s')->where('id',$sellingId)->first();
         $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
         $sellingAdd->fish_name = $fishName->name;
-        dump($sellingAdd);
         return view('dashboard/buyer/setOrder',compact('sellingAdd'));
 
+    }
+
+    public function postSetOrder(Request $request,$sellingId){
+        try {
+            $user = auth()->user();
+
+            $data = $request->all();
+            $data['selling_id'] = $sellingId;
+            $data['status'] = "ordered";
+
+            Order::create($data);
+
+
+            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    public function viewMyOrders(){
+        try {
+            $user = auth()->user();
+
+            $myOrders = DB::table('orders')->where('buyer_id',$user->id)->get();
+            foreach ($myOrders as $myOrder){
+                $sellingAdd=DB::table('selling_a_d_s')->where('id',$myOrder->selling_id)->first();
+                $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
+                $myOrder->fish_name = $fishName->name;
+                $myOrder->price = $sellingAdd->price;
+            }
+            dump($myOrders);
+            return view('dashboard/buyer/viewMyOrders',compact('myOrders'));
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
     }
 }

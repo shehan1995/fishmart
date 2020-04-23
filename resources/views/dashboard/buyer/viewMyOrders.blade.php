@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Buying Advertisement</h1>
+        <h1 class="h3 mb-0 text-gray-800">My Orders</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
         </div>
 
@@ -17,18 +17,20 @@
                     <th scope="col">Fish Name</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Buy</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($sellingAdds as $add)
+                @foreach($myOrders as $order)
                 <tr>
 {{--                    <th scope="row" class="counterCell">1</th>--}}
-                    <td>{{$add->fish_name}}</td>
-                    <td>{{$add->amount}}</td>
-                    <td>{{$add->price}}</td>
+                    <td>{{$order->fish_name}}</td>
+                    <td>{{$order->amount}}</td>
+                    <td>{{$order->price}}</td>
+                    <td>{{$order->status}}</td>
                     <td>
-                        <a class="btn btn-success" href="{{route('setOrder',['sellingId'=>$add->id])}}" >Set Order</a>
+{{--                        <a class="btn btn-success" href="{{route('setOrder',['sellingId'=>$add->id])}}" >Set Order</a>--}}
                     </td>
                 </tr>
                 @endforeach

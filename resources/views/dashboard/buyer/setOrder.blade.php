@@ -1,4 +1,4 @@
-@extends('dashboard.seller.sellerDashboard')
+@extends('dashboard.buyer.buyerDashboard')
 
 @section('body')
     <div class="container-fluid">
@@ -26,7 +26,7 @@
                                 <h3>Submit your order</h3>
                             </div>
                             <div class = "row">
-                                <form action="{{url('dashboard/buyer/post-createAdd')}}" method="POST" id="regForm">
+                                <form action="{{route('postSetOrder',['sellingId'=>$sellingAdd->id])}}" method="POST" id="regForm">
                                     {{ csrf_field() }}
 
                                     <div class="form-label-group" >

@@ -96,6 +96,7 @@ class AdminController extends Controller
                 'avg_price'=>'required'
             ]);
             $data = $request->all();
+            $data['amount']=0;
             $fish = Fish::create($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
         } catch (\Exception $e) {

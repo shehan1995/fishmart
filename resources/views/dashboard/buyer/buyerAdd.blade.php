@@ -1,4 +1,4 @@
-@extends('dashboard.seller.sellerDashboard')
+@extends('dashboard.buyer.buyerDashboard')
 
 @section('body')
     <div class="container-fluid">

@@ -135,6 +135,13 @@
           <span>Selling Advertisements</span></a>
       </li>
 
+      <!-- Nav Item - View My Orders -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('dashboard/buyer/viewOrders')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>My Orders</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

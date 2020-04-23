@@ -37,4 +37,6 @@ Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
 Route::post('dashboard/buyer/post-createAdd','BuyerController@postCreateAdd');
 Route::get('dashboard/buyer/viewSellingAdds','BuyerController@viewSellingAdds');
 Route::get('dashboard/buyer/setOrder/{sellingId}','BuyerController@setOrder')->name('setOrder');
+Route::post('dashboard/buyer/post-createOrder/{sellingId}',"BuyerController@postSetOrder")->name('postSetOrder');
+Route::get('dashboard/buyer/viewOrders','BuyerController@viewMyOrders');
 
