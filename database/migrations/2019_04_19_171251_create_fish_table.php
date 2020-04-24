@@ -18,7 +18,6 @@ class CreateFishTable extends Migration
             $table->string('name');
             $table->float('avg_price');
             $table->float('amount');
-            $table->float('price');
             $table->timestamps();
         });
     }

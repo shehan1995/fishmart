@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SELLER <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BUYER <sup>2</sup></div>
       </a>
 
       <!-- Divider -->
@@ -121,11 +121,25 @@
           <span>Charts</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Create ADD -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{url('dashboard/buyer/createAdd')}}">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Create Advertisement</span></a>
+      </li>
+
+      <!-- Nav Item - View selling adds -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('dashboard/buyer/viewSellingAdds')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Selling Advertisements</span></a>
+      </li>
+
+      <!-- Nav Item - View My Orders -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('dashboard/buyer/viewOrders')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>My Orders</span></a>
       </li>
 
       <!-- Divider -->
@@ -303,7 +317,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{url('dashboard/profile-edit')}}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -316,7 +330,7 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="{{url('logout')}}" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -369,7 +383,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href={{url('logout')}}>Logout</a>
         </div>
       </div>
     </div>

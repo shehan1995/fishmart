@@ -61,6 +61,7 @@
                   <select name='categary'>
                     <option value='Seller'>Seller</option>
                     <option value='Buyer'>Buyer</option>
+                      <option value='Admin'>Admin</option>
                   </select>
                   <label for="inputCategary">Select Categary</label>
  
