@@ -17,8 +17,8 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id')->unique();
             $table->unsignedBigInteger('selling_id');
             $table->foreign('selling_id')->references('id')->on('selling_a_d_s');
-            $table->unsignedBigInteger('buying_id');
-            $table->foreign('buying_id')->references('id')->on('buying_a_d_s');
+            $table->unsignedBigInteger('buyer_id');
+            $table->foreign('buyer_id')->references('id')->on('users');
             $table->float('amount');
             $table->string('status');
             $table->timestamps();
