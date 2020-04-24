@@ -27,7 +27,7 @@ h2,p
 {
     text-align: center;
 }
-input[type=text], input[type=password], input[type=nic]
+input[type=text], input[type=password], input[type=nic],input[type=email]
 {
     width: 100%;
     box-sizing: border-box;
