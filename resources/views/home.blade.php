@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="{{asset('fonts/fontawesome/css/font-awesome.min.css')}}">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="{{asset('css/home/style.css')}}">
+    
+    
+    
   </head>
   <body>
     

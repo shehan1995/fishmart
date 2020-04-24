@@ -1,0 +1,66 @@
+body
+{
+    background-image: url('boat1.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: sans-serif;
+}
+.signupbox , .loginbox
+{
+    max-width: 350px;
+    border-radius: 20px;
+    margin: auto;
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    color:whitesmoke;
+}
+.signupbox
+{
+    margin-top: 20px;
+}
+.loginbox
+{
+    margin-top: 100px;
+}
+h2,p
+{
+    text-align: center;
+}
+input[type=text], input[type=password], input[type=nic]
+{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 5px;
+    background: rgba(0,0,0,0.10);
+    outline: none;
+    border: none;
+    border-bottom: 1px #fff;
+    color: seashell;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+input[type=submit]
+{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    background: #5cafdf;
+    opacity: 0.9;
+    border-radius: 20px;
+    font-size: 20px;
+    color: seashell;
+}
+input[type=submit]:hover
+{
+    background: rgb(45, 163, 231);
+    opacity: 0.9;
+}
+a
+{
+    color: #5cafdf;
+}
