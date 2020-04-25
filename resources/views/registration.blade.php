@@ -31,6 +31,10 @@
                 @if ($errors->has('number'))
                 <span class="error">{{ $errors->first('number') }}</span>
                 @endif
+                <input type="text" id="inputNumber" name="number" class="form-control" placeholder="Contact Number" autofocus>
+                @if ($errors->has('number'))
+                  <span class="error">{{ $errors->first('number') }}</span>
+                  @endif
                 <div class="form-label-group">
                     <select name='categary'>
                       <option value='Seller'>Seller</option>
