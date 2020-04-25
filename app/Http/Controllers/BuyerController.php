@@ -127,8 +127,10 @@ class BuyerController extends Controller
 
     public function setOrder($sellingId){
         $sellingAdd = DB::table('selling_a_d_s')->where('id',$sellingId)->first();
-        $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
-        $sellingAdd->fish_name = $fishName->name;
+        $fish=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
+
+        $sellingAdd->fish_name = $fish->name;
+        $sellingAdd->total_amount = $fish->amount;
         return view('dashboard/buyer/setOrder',compact('sellingAdd'));
 
     }
@@ -140,11 +142,12 @@ class BuyerController extends Controller
             $data = $request->all();
             $data['selling_id'] = $sellingId;
             $data['status'] = "ordered";
+            $data['buyer_id'] = $user->id;
 
             Order::create($data);
 
 
-            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+            return Redirect::to("dashboard/buyer/viewMyOrders")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
 
             return $e->getMessage();
@@ -162,7 +165,6 @@ class BuyerController extends Controller
                 $myOrder->fish_name = $fishName->name;
                 $myOrder->price = $sellingAdd->price;
             }
-            dump($myOrders);
             return view('dashboard/buyer/viewMyOrders',compact('myOrders'));
         }catch (\Exception $e){
             return $e->getMessage();

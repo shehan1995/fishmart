@@ -13,8 +13,12 @@
                 <input type="nic" name="nic" id="inputNIC" placeholder="NIC" required>
                 @if ($errors->has('nic'))
                   <span class="error">{{ $errors->first('nic') }}</span>
-                  @endif  
-
+                  @endif
+                @error('nic')
+                    <span class=”invalid-feedback” role=”alert”>
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
                 <input type="password" name="password" id="inputPassword" placeholder="Password"required><br><br>
                 @if ($errors->has('password'))
