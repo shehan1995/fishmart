@@ -13,15 +13,22 @@
         <form action="{{url('post-registration')}}" method="POST" id="regForm">
             {{ csrf_field() }}
             <h2>Sign Up</h2>
+
                 <input type="text" id="inputName" name="name" class="form-control" placeholder="Full Name" autofocus>
-                @if ($errors->has('name'))
-                  <span class="error">{{ $errors->first('name') }}</span>
-                @endif
+                    @if ($errors->has('name'))
+                      <span class="error">{{ $errors->first('name') }}</span>
+                    @endif
+
                 <input type="text" id="inputNIC" name="nic" class="form-control" placeholder="NIC" autofocus>
 
                 @if ($errors->has('NIC'))
                   <span class="error">{{ $errors->first('NIC') }}</span>
-                @endif 
+                @endif
+                @error('nic')
+                <span class=”invalid-feedback” role=”alert”>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                @enderror
                 <input type="text" id="address" name="address" class="form-control" placeholder="Address" autofocus>
                 @if ($errors->has('address'))
                 <span class="error">{{ $errors->first('address') }}</span>
@@ -59,6 +66,33 @@
             <p>Have an account? <a href="{{url('login')}}">Log in</a></p>
         </form>
         </div>
+
+{{--        @error('failed')--}}
+{{--        <div class="modal" id="myModal">--}}
+{{--            <div class="modal-dialog">--}}
+{{--                <div class="modal-content">--}}
+
+{{--                    <!-- Modal Header -->--}}
+{{--                    <div class="modal-header">--}}
+{{--                        <h4 class="modal-title">Submit Order</h4>--}}
+{{--                        <button type="button" class="close" data-dismiss="modal">&times;</button>--}}
+{{--                    </div>--}}
+
+{{--                    <!-- Modal body -->--}}
+{{--                    <div class="modal-body">--}}
+{{--                        Do you want to submit order for review--}}
+{{--                    </div>--}}
+
+{{--                    <!-- Modal footer -->--}}
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="submit" class="btn btn-primary" >Submit</button>--}}
+{{--                        <button type="submit" class="btn btn-danger" data-dismiss="modal" >Close</button>--}}
+{{--                    </div>--}}
+
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        @enderror--}}
       
 </body>
 </html>

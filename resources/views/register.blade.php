@@ -26,6 +26,7 @@
                                 <span class="error">{{ $errors->first('name') }}</span>
                                 @endif
 
+
                                 </div>
                                 <div class="form-label-group">
                                 <input type="text" id="inputNIC" name="nic" class="form-control" placeholder="NIC" autofocus>
