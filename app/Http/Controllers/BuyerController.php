@@ -147,7 +147,7 @@ class BuyerController extends Controller
             Order::create($data);
 
 
-            return Redirect::to("dashboard/buyer/viewMyOrders")->withSuccess('Great! You have Successfully loggedin');
+            return Redirect::to("dashboard/buyer/viewOrders")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
 
             return $e->getMessage();

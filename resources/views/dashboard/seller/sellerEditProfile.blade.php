@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">Register here!</h3>
-                                <form action="{{url('dashboard/post-editProfile')}}" method="POST" id="regForm">
+                                <form action="{{url('dashboard/seller/post-editProfile')}}" method="POST" id="regForm">
                                     {{ csrf_field() }}
                                     <div class="form-label-group" {{ $errors->has('name') ? ' has-error' : '' }}>
                                         <input type="text" id="inputName" name="name" class="form-control" placeholder="Full name" value="{{ $user->name }}" autofocus>

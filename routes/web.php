@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('register');
+    return view('index');
 });
 
 Route::get('home','HomeController@index');
@@ -24,14 +24,18 @@ Route::get('registration', 'AuthController@registration');
 Route::post('post-registration', 'AuthController@postRegistration'); 
 Route::get('dashboard', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
-Route::get('dashboard/profile-edit','SellerController@editProfile');
-Route::post('dashboard/post-editProfile','SellerController@postEditProfile');
+
+
 
 Route::get('dashboard/admin/fish','AdminController@createFish');
 Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
 
+Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
+Route::post('dashboard/seller/post-editProfile','SellerController@postEditProfile');
 Route::get('dashboard/seller/createAdd','SellerController@createAdd');
 Route::post('dashboard/seller/post-createAdd','SellerController@postCreateAdd');
+Route::get('dashboard/seller/orders','SellerController@viewOrders');
+Route::post('dashboard/seller/post-order/{orderStatus}','SellerController@postSetOrder')->name('setOrderStatus');
 
 Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
 Route::post('dashboard/buyer/post-createAdd','BuyerController@postCreateAdd');
