@@ -157,9 +157,11 @@
         
         <!-- About Area End -->
         <!-- Categories Area Start -->
-        <section class="categories-area section-padding3">
-            <div class="container">
-                <div class="row">
+        <section class="categories-area myDiv  section-padding3">
+            <div class="bg"></div>
+
+            <div class="container ">
+                <div class="row categories-area-back">
                     <div class="col-lg-6">
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-70">
