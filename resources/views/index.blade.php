@@ -68,14 +68,25 @@
     <main>
 
         <!-- slider Area Start-->
-        <div class="slider-area ">
-            <div class="slider-active">
-                <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center" id = "bg"  >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-8">
-                                <div class="hero__caption">
+        <!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+          alt="First slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+      <div class="carousel-caption">
+                <div class="hero__caption">
                                     <span data-animation="fadeInUp" data-delay=".4s">The perfect Fish Market</span>
                                     <h1 data-animation="fadeInUp" data-delay=".6s">The FishMart</h1>
                                     <P data-animation="fadeInUp" data-delay=".8s" >Already a member? Sign in!. New to FishMart? Sign up</P>
@@ -84,15 +95,63 @@
                                         <a href="{{url('login')}}" class="btn hero-btn"  data-animation="fadeInLeft"  data-delay=".8s">Login</a>
                                         <a href="{{url('registration')}}" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Sign Up</a>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <!-- Single  -->
-
-            </div>
-        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+          alt="Second slide">
+        <div class="mask rgba-black-strong"></div>
+      </div>
+      <div class="carousel-caption">
+      <div class="hero__caption">
+                                    <span data-animation="fadeInUp" data-delay=".4s">The perfect Fish Market</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">The FishMart</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >Already a member? Sign in!. New to FishMart? Sign up</P>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn">
+                                        <a href="{{url('login')}}" class="btn hero-btn"  data-animation="fadeInLeft"  data-delay=".8s">Login</a>
+                                        <a href="{{url('registration')}}" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Sign Up</a>
+                                    </div>
+                </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+      <div class="hero__caption">
+                                    <span data-animation="fadeInUp" data-delay=".4s">The perfect Fish Market</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">The FishMart</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >Already a member? Sign in!. New to FishMart? Sign up</P>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn">
+                                        <a href="{{url('login')}}" class="btn hero-btn"  data-animation="fadeInLeft"  data-delay=".8s">Login</a>
+                                        <a href="{{url('registration')}}" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Sign Up</a>
+                                    </div>
+                </div>
+      </div>
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
         <!-- slider Area End-->
         <!-- About Area start -->
         
@@ -465,7 +524,7 @@
             
             console.log(curImage);
             $('#bg').css("background-image",'url('+images[curImage]+')').fadeIn(3000);
-            $('#bg').fadeOut(3000);
+            $('#bg').fadeOut('slow');
             curImage++;
             
   
