@@ -71,7 +71,7 @@
         <div class="slider-area ">
             <div class="slider-active">
                 <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center">
+                <div class="single-slider slider-height d-flex align-items-center" id = "bg"  >
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-8">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Single Slider -->
+                <!-- Single  -->
 
             </div>
         </div>
@@ -230,6 +230,51 @@
 		<!-- Jquery Plugins, main Jquery -->	
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
-        
+        <script>
+            var i = 0;
+            console.log("run");
+            //showSlides();
+
+            function showSlides() {
+            i++;
+            console.log(document.getElementById("bg").style.backgroundImage);
+            //console.log(i);
+  
+            if (i ==1) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h1_hero.jpg')}})"}
+            if (i ==2) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h2_hero.jpg')}})"}
+            if (i ==3) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h3_hero.jpg')}})"; i=0}
+            
+            }
+            //setInterval(showSlides,2000);
+
+
+            var rotateEvery = 3; //seconds
+            var images = [
+                "{{asset('assets/img/hero/h1_hero.jpg')}}",
+            "{{asset('assets/img/hero/h2_hero.jpg')}}",
+            "{{asset('assets/img/hero/h3_hero.jpg')}}"];
+            var curImage = 0;
+            console.log(images.length);
+            setInterval(delayFunction, rotateEvery*1000);
+            function delayFunction() {
+            if(curImage == images.length){
+                curImage = 0;
+            }
+            
+            console.log(curImage);
+            $('#bg').css("background-image",'url('+images[curImage]+')').fadeIn(3000);
+            $('#bg').fadeOut(3000);
+            curImage++;
+            
+  
+            }
+
+
+           
+
+        </script> 
+
+
+
     </body>
 </html>
