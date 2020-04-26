@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+//    return view('index');
+//});
 
-Route::get('home','HomeController@index');
+Route::get('/','HomeController@index');
 Route::get('login', 'AuthController@index');
 Route::post('post-login', 'AuthController@postLogin'); 
 Route::get('registration', 'AuthController@registration');
@@ -29,6 +29,8 @@ Route::get('logout', 'AuthController@logout');
 
 Route::get('dashboard/admin/fish','AdminController@createFish');
 Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
+Route::post('dashboard/admin/post-editProfile','BuyerController@postEditProfile');
+Route::get('dashboard/admin/profile-edit','BuyerController@editProfile');
 
 Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
 Route::post('dashboard/seller/post-editProfile','SellerController@postEditProfile');
@@ -43,4 +45,7 @@ Route::get('dashboard/buyer/viewSellingAdds','BuyerController@viewSellingAdds');
 Route::get('dashboard/buyer/setOrder/{sellingId}','BuyerController@setOrder')->name('setOrder');
 Route::post('dashboard/buyer/post-createOrder/{sellingId}',"BuyerController@postSetOrder")->name('postSetOrder');
 Route::get('dashboard/buyer/viewOrders','BuyerController@viewMyOrders');
+Route::post('dashboard/buyer/post-editProfile','BuyerController@postEditProfile');
+Route::get('dashboard/buyer/profile-edit','BuyerController@editProfile');
+
 

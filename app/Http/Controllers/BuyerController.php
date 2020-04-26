@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\BuyingAD;
 use App\Models\Order;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class BuyerController extends Controller
@@ -85,7 +87,31 @@ class BuyerController extends Controller
     {
         //
     }
+    public function editProfile(){
+        $user = auth()->user();
 
+        return view('dashboard/buyer/buyerEditProfile',compact('user'));
+    }
+
+    public function postEditProfile(Request $request){
+        try {
+            $user = auth()->user();
+            request()->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+            ]);
+            $data = $request->all();
+            $data['password'] = Hash::make($data['password']);
+            $show = User::findOrFail($user->id);
+            $show->update($data);
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+
+        return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+    }
 
     public function createAdd(){
         $fish =DB::table('fish')->get();
