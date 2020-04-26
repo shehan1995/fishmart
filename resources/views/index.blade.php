@@ -163,13 +163,215 @@
             </div>
         </section>
         <!-- Want To Work End -->
+        <section class="client-comments section-paddingt30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-70">
+                            <h2>Recent Seller Advertisements</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- latest-blog-area start -->
+            <div class="latest-blog-area">
+                <div class="container">
+                    <div class="custom-row">
+                        <div class="blog-active">
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog1.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog3.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <!-- End latest-blog-area -->
+        </section>
 
+        <section class="client-comments section-paddingt30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-70">
+                            <h2>Recent Buyer Advertisements</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- latest-blog-area start -->
+            <div class="latest-blog-area">
+                <div class="container">
+                    <div class="custom-row">
+                        <div class="blog-active">
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog1.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog3.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <!-- End latest-blog-area -->
+        </section>
         
         <!-- Brand Area Start -->
         
         <!-- Brand Area End -->
         <!-- Contact Info Start -->
-        
+        <section class="contact-info-area w-padding2" data-background="assets/img/gallery/section_bg04.jpg">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-5 col-lg-7">
+                      <div class="contact-caption mb-50">
+                            <h3>Do you want to know more?
+                            </h3>
+                            <p>We are here to help you 24/7</p>
+                            
+                      </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5">
+                        <form action="#" class="contact-wrapper">
+                            <input type="text" name="name" placeholder="Full Name">
+                            <input type="email" name="email" placeholder="Email Address">
+                            <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                            <button class="submit-btn2" type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Info End -->
         <!-- Contact Info End -->
 
     </main>
