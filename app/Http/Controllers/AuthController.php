@@ -34,7 +34,7 @@ class AuthController extends Controller
             // Authentication passed...
             return redirect()->intended('dashboard');
         }
-        return Redirect::to("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect()->back() ->withInput()->withErrors(['nic' => 'Sorry nic and password not matched']);
     }
  
     public function postRegistration(Request $request)
@@ -48,10 +48,17 @@ class AuthController extends Controller
 
         $data = $request->all();
 
-        $check = $this->create($data);
-       
-        return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+        try {
+            $check = $this->create($data);
+            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+        }catch (\Exception $e){
+            dump($data);
+            return redirect()->back() ->withInput()->withErrors(['nic' => 'Sorry nic and password not matched']);
+        }
+
     }
+
+
      
     public function dashboard()
     {
