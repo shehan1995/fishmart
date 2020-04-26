@@ -68,66 +68,31 @@
     <main>
 
         <!-- slider Area Start-->
-        <!--Carousel Wrapper-->
-        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-            <!--Indicators-->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                <li data-target="#carousel-example-2" data-slide-to="2"></li>
-            </ol>
-            <!--/.Indicators-->
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                             alt="First slide">
-                        <div class="mask rgba-black-light"></div>
-                    </div>
-                    <div class="carousel-caption">
-                       <button class="btn-primary">Log In</button>
-                        <p>First text</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <!--Mask color-->
-                    <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                             alt="Second slide">
-                        <div class="mask rgba-black-strong"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">Strong mask</h3>
-                        <p>Secondary text</p>
+        <div class="slider-area ">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center" id = "bg"  >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-8">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInUp" data-delay=".4s">The perfect Fish Market</span>
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">The FishMart</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >Already a member? Sign in!. New to FishMart? Sign up</P>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn">
+                                        <a href="{{url('login')}}" class="btn hero-btn"  data-animation="fadeInLeft"  data-delay=".8s">Login</a>
+                                        <a href="{{url('registration')}}" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Sign Up</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <!--Mask color-->
-                    <div class="view">
-                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                             alt="Third slide">
-                        <div class="mask rgba-black-slight"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">Slight mask</h3>
-                        <p>Third text</p>
-                    </div>
-                </div>
+                <!-- Single  -->
+
             </div>
-            <!--/.Slides-->
-            <!--Controls-->
-            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!--/.Controls-->
         </div>
-        <!--/.Carousel Wrapper-->
         <!-- slider Area End-->
         <!-- About Area start -->
         
@@ -198,13 +163,215 @@
             </div>
         </section>
         <!-- Want To Work End -->
+        <section class="client-comments section-paddingt30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-70">
+                            <h2>Recent Seller Advertisements</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- latest-blog-area start -->
+            <div class="latest-blog-area">
+                <div class="container">
+                    <div class="custom-row">
+                        <div class="blog-active">
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog1.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog3.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Fisherman</span>
+                                            </div>
+                                    </div>
+                                        <p>I  have 100Kgs of Thalapath at Rs.400 per KG.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <!-- End latest-blog-area -->
+        </section>
 
+        <section class="client-comments section-paddingt30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-70">
+                            <h2>Recent Buyer Advertisements</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- latest-blog-area start -->
+            <div class="latest-blog-area">
+                <div class="container">
+                    <div class="custom-row">
+                        <div class="blog-active">
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog1.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog3.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single-items -->
+                            <div class="col-xl-4">
+                                <div class="blog-wrapper">
+                                    <div class="blog-inner">
+                                    <div class="blog-top">
+                                            <div class="person-img">
+                                                <img src="assets/img/gallery/blog2.png" alt="">
+                                            </div>
+                                            <div class="comment-person">
+                                                <h2>Nimal Perera</h2>   
+                                                <span>Buyer</span>
+                                            </div>
+                                    </div>
+                                        <p>I need 1000Kgs of Salmon. Contact me if you can provide.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <!-- End latest-blog-area -->
+        </section>
         
         <!-- Brand Area Start -->
         
         <!-- Brand Area End -->
         <!-- Contact Info Start -->
-        
+        <section class="contact-info-area w-padding2" data-background="assets/img/gallery/section_bg04.jpg">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-5 col-lg-7">
+                      <div class="contact-caption mb-50">
+                            <h3>Do you want to know more?
+                            </h3>
+                            <p>We are here to help you 24/7</p>
+                            
+                      </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5">
+                        <form action="#" class="contact-wrapper">
+                            <input type="text" name="name" placeholder="Full Name">
+                            <input type="email" name="email" placeholder="Email Address">
+                            <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                            <button class="submit-btn2" type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Info End -->
         <!-- Contact Info End -->
 
     </main>
@@ -266,8 +433,6 @@
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
         <script>
-            $('.carousel').carousel()
-
             var i = 0;
             console.log("run");
             //showSlides();
