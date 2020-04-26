@@ -68,31 +68,66 @@
     <main>
 
         <!-- slider Area Start-->
-        <div class="slider-area ">
-            <div class="slider-active">
-                <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-8">
-                                <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".4s">The perfect Fish Market</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".6s">The FishMart</h1>
-                                    <P data-animation="fadeInUp" data-delay=".8s" >Already a member? Sign in!. New to FishMart? Sign up</P>
-                                    <!-- Hero-btn -->
-                                    <div class="hero__btn">
-                                        <a href="{{url('login')}}" class="btn hero-btn"  data-animation="fadeInLeft"  data-delay=".8s">Login</a>
-                                        <a href="{{url('registration')}}" class="btn border-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">Sign Up</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!--Carousel Wrapper-->
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-2" data-slide-to="1"></li>
+                <li data-target="#carousel-example-2" data-slide-to="2"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                             alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                       <button class="btn-primary">Log In</button>
+                        <p>First text</p>
                     </div>
                 </div>
-                <!-- Single Slider -->
-
+                <div class="carousel-item">
+                    <!--Mask color-->
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                             alt="Second slide">
+                        <div class="mask rgba-black-strong"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Strong mask</h3>
+                        <p>Secondary text</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <!--Mask color-->
+                    <div class="view">
+                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                             alt="Third slide">
+                        <div class="mask rgba-black-slight"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">Slight mask</h3>
+                        <p>Third text</p>
+                    </div>
+                </div>
             </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
         </div>
+        <!--/.Carousel Wrapper-->
         <!-- slider Area End-->
         <!-- About Area start -->
         
@@ -153,7 +188,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-xl-6 col-lg-8 col-md-8">
                         <div class="wantToWork-caption wantToWork-caption2">
-                            <h2>Easy registratin</h2>
+                            <h2>Easy registration</h2>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-3">
@@ -230,6 +265,53 @@
 		<!-- Jquery Plugins, main Jquery -->	
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
-        
+        <script>
+            $('.carousel').carousel()
+
+            var i = 0;
+            console.log("run");
+            //showSlides();
+
+            function showSlides() {
+            i++;
+            console.log(document.getElementById("bg").style.backgroundImage);
+            //console.log(i);
+  
+            if (i ==1) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h1_hero.jpg')}})"}
+            if (i ==2) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h2_hero.jpg')}})"}
+            if (i ==3) {document.getElementById("bg").style.backgroundImage= "url({{asset('assets/img/hero/h3_hero.jpg')}})"; i=0}
+            
+            }
+            //setInterval(showSlides,2000);
+
+
+            var rotateEvery = 3; //seconds
+            var images = [
+                "{{asset('assets/img/hero/h1_hero.jpg')}}",
+            "{{asset('assets/img/hero/h2_hero.jpg')}}",
+            "{{asset('assets/img/hero/h3_hero.jpg')}}"];
+            var curImage = 0;
+            console.log(images.length);
+            setInterval(delayFunction, rotateEvery*1000);
+            function delayFunction() {
+            if(curImage == images.length){
+                curImage = 0;
+            }
+            
+            console.log(curImage);
+            $('#bg').css("background-image",'url('+images[curImage]+')').fadeIn(3000);
+            $('#bg').fadeOut(3000);
+            curImage++;
+            
+  
+            }
+
+
+           
+
+        </script> 
+
+
+
     </body>
 </html>
