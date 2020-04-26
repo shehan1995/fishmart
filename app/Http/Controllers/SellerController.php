@@ -191,7 +191,7 @@ dump("if");
                 ->where('id', $req->orderId)
                 ->update(['status' => $orderStatus]);
 
-//            return Redirect::to("dashboard/seller/orders")->withSuccess('Great! You have Successfully loggedin');
+            return Redirect::to("dashboard/seller/orders")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
 
             return $e->getMessage();
