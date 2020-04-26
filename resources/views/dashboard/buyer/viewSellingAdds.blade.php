@@ -15,6 +15,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Fish Name</th>
+                    <th scope="col">Seller Name</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Price</th>
                     <th scope="col">Buy</th>
@@ -25,6 +26,7 @@
                 <tr>
 {{--                    <th scope="row" class="counterCell">1</th>--}}
                     <td>{{$add->fish_name}}</td>
+                    <td>{{$add->user}}</td>
                     <td>{{$add->amount}}</td>
                     <td>{{$add->price}}</td>
                     <td>

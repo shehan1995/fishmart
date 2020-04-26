@@ -145,8 +145,10 @@ class BuyerController extends Controller
     public function viewSellingAdds(){
         $sellingAdds = DB::table('selling_a_d_s')->where('status','pending')->get();
         foreach ($sellingAdds as $sellingAdd){
+            $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
             $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
             $sellingAdd->fish_name = $fishName->name;
+            $sellingAdd->user = $seller->name;
         }
        return view('dashboard/buyer/viewSellingAdds',compact('sellingAdds'));
     }
