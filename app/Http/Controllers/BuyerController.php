@@ -89,8 +89,8 @@ class BuyerController extends Controller
     }
     public function editProfile(){
         $user = auth()->user();
-
-        return view('dashboard/buyer/buyerEditProfile',compact('user'));
+        $userName = $user->name;
+        return view('dashboard/buyer/buyerEditProfile',compact('user'),compact('userName'));
     }
 
     public function postEditProfile(Request $request){
@@ -114,9 +114,11 @@ class BuyerController extends Controller
     }
 
     public function createAdd(){
+        $user = auth()->user();
+        $userName = $user->name;
+
         $fish =DB::table('fish')->get();
-        dump($fish);
-        return view('dashboard/buyer/buyerAdd',compact('fish'));
+        return view('dashboard/buyer/buyerAdd',compact('fish'),compact('userName'));
     }
 
     public function postCreateAdd(Request $request){
@@ -143,6 +145,9 @@ class BuyerController extends Controller
     }
 
     public function viewSellingAdds(){
+        $user = auth()->user();
+        $userName = $user->name;
+
         $sellingAdds = DB::table('selling_a_d_s')->where('status','pending')->get();
         foreach ($sellingAdds as $sellingAdd){
             $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
@@ -150,16 +155,23 @@ class BuyerController extends Controller
             $sellingAdd->fish_name = $fishName->name;
             $sellingAdd->user = $seller->name;
         }
-       return view('dashboard/buyer/viewSellingAdds',compact('sellingAdds'));
+       return view('dashboard/buyer/viewSellingAdds',compact('sellingAdds'),compact('userName'));
     }
 
     public function setOrder($sellingId){
+        $user = auth()->user();
+        $userName = $user->name;
+
         $sellingAdd = DB::table('selling_a_d_s')->where('id',$sellingId)->first();
         $fish=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
 
+        $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
+
         $sellingAdd->fish_name = $fish->name;
         $sellingAdd->total_amount = $fish->amount;
-        return view('dashboard/buyer/setOrder',compact('sellingAdd'));
+        $sellingAdd->seller = $seller;
+
+        return view('dashboard/buyer/setOrder',compact('sellingAdd'),compact('userName'));
 
     }
 
@@ -185,7 +197,7 @@ class BuyerController extends Controller
     public function viewMyOrders(){
         try {
             $user = auth()->user();
-
+            $userName = $user->name;
             $myOrders = DB::table('orders')->where('buyer_id',$user->id)->get();
             foreach ($myOrders as $myOrder){
                 $sellingAdd=DB::table('selling_a_d_s')->where('id',$myOrder->selling_id)->first();
@@ -193,7 +205,7 @@ class BuyerController extends Controller
                 $myOrder->fish_name = $fishName->name;
                 $myOrder->price = $sellingAdd->price;
             }
-            return view('dashboard/buyer/viewMyOrders',compact('myOrders'));
+            return view('dashboard/buyer/viewMyOrders',compact('myOrders'),compact('userName'));
         }catch (\Exception $e){
             return $e->getMessage();
         }

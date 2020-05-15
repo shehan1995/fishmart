@@ -66,14 +66,14 @@ class AuthController extends Controller
 
       if(Auth::check()){
         $user = auth()->user();
+          $userName=$user->name;
         if (($user->categary)=="Admin"){
           return view('dashboard/admin/adminDashboard');
         }else if(($user->categary)=="Seller"){
             $adds =DB::table('selling_a_d_s')->where('status','sold')->get();
-            $userName=$user->name;
             return view('dashboard/seller/sellerBody',compact('userName'));
         }else{
-          return view('dashboard/buyer/buyerBody');
+          return view('dashboard/buyer/buyerBody',compact('userName'));
         }
 
       }
