@@ -1,16 +1,27 @@
 @extends('dashboard.seller.sellerDashboard')
 
 @section('body')
+    <style>
+    .tb-header{
+    color: black;
+    font-weight: bold;
+    font-size: larger;
+    }
+    .tb-body{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    }
+    </style>
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">My Orders</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <h1 style="font-size: 70px; font-weight: bold" class="h3 mb-0 text-white">My Orders</h1>
         </div>
 
         <!-- Content Row -->
-        <div class="container-fluid">
+        <div class="container-fluid card">
             <table class="table table-striped">
                 <thead>
                 <tr>

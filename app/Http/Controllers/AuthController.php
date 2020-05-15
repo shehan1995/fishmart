@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Validator,Redirect,Response;
 Use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -68,9 +69,11 @@ class AuthController extends Controller
         if (($user->categary)=="Admin"){
           return view('dashboard/admin/adminDashboard');
         }else if(($user->categary)=="Seller"){
-          return view('dashboard/seller/sellerBody');
+            $adds =DB::table('selling_a_d_s')->where('status','sold')->get();
+            $userName=$user->name;
+            return view('dashboard/seller/sellerBody',compact('userName'));
         }else{
-          return view('dashboard/buyer/buyerDashboard');
+          return view('dashboard/buyer/buyerBody');
         }
 
       }

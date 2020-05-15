@@ -92,8 +92,13 @@ class SellerController extends Controller
 
     public function editProfile(){
         $user = auth()->user();
-
-        return view('dashboard/seller/sellerEditProfile',compact('user'));
+        $userName=$user->name;
+        return view('dashboard/seller/sellerEditProfile',compact('user'),compact('userName'));
+    }
+    public function viewProfile(){
+        $user = auth()->user();
+        $userName=$user->name;
+        return view('dashboard/seller/sellerViewProfile',compact('user'),compact('userName'));
     }
 
     public function postEditProfile(Request $request){
@@ -117,9 +122,10 @@ class SellerController extends Controller
     }
 
     public function createAdd(){
+        $user = auth()->user();
+        $userName = $user->name;
         $fish =DB::table('fish')->get();
-        dump($fish);
-        return view('dashboard/seller/sellerAdd',compact('fish'));
+        return view('dashboard/seller/sellerAdd',compact('fish'),compact('userName'));
     }
 
     public function postCreateAdd(Request $request){
@@ -129,7 +135,6 @@ class SellerController extends Controller
             $data = $request->all();
             $data['users_id'] = $user->id;
             $data['status'] = 'pending';
-            dump($data);
 
             $TotalFish = DB::table('fish')->where('id', $data['fish_id'])->first();
             $totalFishAmount = $data['amount'] + $TotalFish->amount;
@@ -153,6 +158,7 @@ class SellerController extends Controller
     public function viewOrders(){
         try {
             $user = auth()->user();
+            $userName = $user->name;
 
             $data = array();
             $myAdds = DB::table('selling_a_d_s')->where('users_id',$user->id)->get();
@@ -166,20 +172,32 @@ class SellerController extends Controller
                 $addArray['orders']=$myAdd;
                 array_push($data,$addArray);
             }
-            return view('dashboard/seller/viewMyOrders',compact('data'));
+            return view('dashboard/seller/viewMyOrders',compact('data'),compact('userName'));
         }catch (\Exception $e){
             return $e->getMessage();
         }
     }
+    public function viewAdds(){
+        try {
+            $user = auth()->user();
+            $userName = $user->name;
+            $myAdds = DB::table('selling_a_d_s')->where('users_id',$user->id)->get();
+            foreach ($myAdds as $myAdd){
+                $fishName=DB::table('fish')->where('id',$myAdd->fish_id)->first();
+                $myAdd->fish_name = $fishName->name;
+            }
 
+            return view('dashboard/seller/viewMyAdds',compact('myAdds'),compact('userName'));
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
     public function postSetOrder(Request $req, $orderStatus){
 
         try {
             $user = auth()->user();
             $data = $req->all();;
-            dump($orderStatus);
             if($orderStatus=="confirm"){
-dump("if");
                 $affected1 = DB::table('selling_a_d_s')
                     ->where('id', $req->sellingId)
                     ->update(['amount'=>$req->orderAmount]);

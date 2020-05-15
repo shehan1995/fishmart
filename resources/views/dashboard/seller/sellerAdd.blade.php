@@ -1,25 +1,38 @@
 @extends('dashboard.seller.sellerDashboard')
 
 @section('body')
+    <style>
+        .row-modified {
+            align-content: center;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .card-modified {
+            padding-top: 50px;
+            height: 550px;
+            width: 500px;
+        }
+    </style>
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Selling Advertisement</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 style="font-size: 70px; font-weight: bold" class="h3 mb-0 text-white">Selling Advertisement</h1>
         </div>
 
         <!-- Content Row -->
         <div class="container-fluid">
-            <div class="row no-gutter">
+            <div class="row row-modified no-gutter">
                 <div class="login d-flex align-items-center py-5">
-                    <div class="container">
+                    <div class="container card card-modified">
                         <div class="row">
-                            <div class="col-md-9 col-lg-8 mx-auto">
+                            <div class="col-md-9 col-lg-12 mx-auto">
                                 <h3 class="login-heading mb-4">Selling Advertisement</h3>
-                                <form action="{{url('dashboard/seller/post-createAdd')}}" method="POST" id="regForm">
+                                <form style="padding-top: 10px" action="{{url('dashboard/seller/post-createAdd')}}"
+                                      method="POST" id="regForm">
                                     {{ csrf_field() }}
-                                    <div class="form-label-group">
+                                    <div style="padding-bottom: 20px" class="form-label-group">
 
                                         <select name='fish_id'>
                                             @foreach($fish as $fh)
@@ -34,9 +47,10 @@
 
                                     </div>
 
-                                    <div class="form-label-group" >
-                                        <input type="number" id="inputAmount" name="amount" class="form-control" placeholder="Amount in KG" autofocus>
-                                        <label for="inputAmount">Amount in KG</label>
+                                    <div style="padding-bottom: 20px" class="form-label-group">
+                                        <input type="number" id="inputAmount" name="amount" class="form-control"
+                                               placeholder="Amount in KG" autofocus>
+                                        <label style="padding-top: 20px" for="inputAmount">Amount in KG</label>
 
                                         @if ($errors->has('amount'))
                                             <span class="error">{{ $errors->first('amount') }}</span>
@@ -44,8 +58,9 @@
 
                                     </div>
                                     <div class="form-label-group">
-                                        <input type="number" id="inputPrice" name="price" class="form-control" placeholder="Price" autofocus>
-                                        <label for="inputPrice">Price</label>
+                                        <input type="number" id="inputPrice" name="price" class="form-control"
+                                               placeholder="Price" autofocus>
+                                        <label style="padding-top: 20px" for="inputPrice">Price</label>
 
                                         @if ($errors->has('price'))
                                             <span class="error">{{ $errors->first('price') }}</span>
@@ -53,7 +68,9 @@
 
                                     </div>
 
-                                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Submit</button>
+                                    <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                                            type="submit">Submit
+                                    </button>
 
                                 </form>
                             </div>
@@ -62,8 +79,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Content Row -->
 
     </div>
 @endsection 

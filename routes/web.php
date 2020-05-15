@@ -33,10 +33,12 @@ Route::post('dashboard/admin/post-editProfile','BuyerController@postEditProfile'
 Route::get('dashboard/admin/profile-edit','BuyerController@editProfile');
 
 Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
+Route::get('dashboard/seller/profile-view','SellerController@viewProfile');
 Route::post('dashboard/seller/post-editProfile','SellerController@postEditProfile');
 Route::get('dashboard/seller/createAdd','SellerController@createAdd');
 Route::post('dashboard/seller/post-createAdd','SellerController@postCreateAdd');
 Route::get('dashboard/seller/orders','SellerController@viewOrders');
+Route::get('dashboard/seller/viewAdds','SellerController@viewAdds');
 Route::post('dashboard/seller/post-order/{orderStatus}','SellerController@postSetOrder')->name('setOrderStatus');
 
 Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
