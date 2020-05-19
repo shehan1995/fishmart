@@ -110,8 +110,13 @@ class AdminController extends Controller
 
     public function editProfile(){
         $user = auth()->user();
-
-        return view('dashboard/admin/buyerEditProfile',compact('user'));
+        $userName = $user->name;
+        return view('dashboard/admin/adminEditProfile',compact('user'),compact('userName'));
+    }
+    public function viewProfile(){
+        $user = auth()->user();
+        $userName = $user->name;
+        return view('dashboard/admin/adminViewProfile',compact('user'),compact('userName'));
     }
 
     public function postEditProfile(Request $request){

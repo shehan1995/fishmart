@@ -68,7 +68,7 @@ class AuthController extends Controller
         $user = auth()->user();
           $userName=$user->name;
         if (($user->categary)=="Admin"){
-          return view('dashboard/admin/adminDashboard');
+          return view('dashboard/admin/adminBody',compact('userName'));
         }else if(($user->categary)=="Seller"){
             $adds =DB::table('selling_a_d_s')->where('status','sold')->get();
             return view('dashboard/seller/sellerBody',compact('userName'));
