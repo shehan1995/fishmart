@@ -87,7 +87,9 @@ class AdminController extends Controller
     }
 
     public function createFish(){
-        return view('dashboard/admin/adminFish');
+        $user = auth()->user();
+        $userName = $user->name;
+        return view('dashboard/admin/adminFish',compact('userName'));
     }
     public function postCreateFish(Request $request)
     {

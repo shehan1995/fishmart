@@ -26,13 +26,14 @@ Route::get('dashboard', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
 
 
-
+Route::get('dashboard/admin','AuthController@adminDashboard');
 Route::get('dashboard/admin/fish','AdminController@createFish');
 Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
 Route::post('dashboard/admin/post-editProfile','AdminController@postEditProfile');
 Route::get('dashboard/admin/profile-edit','AdminController@editProfile');
 Route::get('dashboard/admin/profile-view','AdminController@viewProfile');
 
+Route::get('dashboard/seller','AuthController@sellerDashboard');
 Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
 Route::get('dashboard/seller/profile-view','SellerController@viewProfile');
 Route::post('dashboard/seller/post-editProfile','SellerController@postEditProfile');

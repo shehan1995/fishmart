@@ -118,7 +118,12 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div>
             <!-- Main Content -->
-            <div  id="content">
+            <div style="background-image: url('https://i.ibb.co/72BkCpv/16457165.jpg');
+                background-repeat: no-repeat, repeat;
+                background-size: 100% 100%;
+                position: relative;
+                height: 100vh;
+                opacity: 1;" id="content">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">

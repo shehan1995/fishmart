@@ -1,5 +1,5 @@
 <!-- Specify that we want to extend the index file -->
-@extends('index')
+@extends('indexOld')
 @section('title', 'Registration')
 @section('content')
  
