@@ -102,7 +102,7 @@ class AuthController extends Controller
         foreach ($sellingAds as $myAdd) {
             if ($myAdd->status == "pending") {
                 $sellingPending = $sellingPending + 1;
-            } elseif ($myAdd->status == "confirmed") {
+            } elseif ($myAdd->status == "ordered") {
                 $sellingConfirmed = $sellingConfirmed + 1;
             } else {
                 $sellingInactive = $sellingInactive + 1;
@@ -159,6 +159,20 @@ class AuthController extends Controller
     public function sellerDashboard(){
         $user = auth()->user();
         $userName = $user->name;
+
+        $sellingPending = 0;
+        $sellingOrdered = 0;
+        $sellingSold = 0;
+        $sellingAds = DB::table('selling_a_d_s')->where('users_id',$user->id)->get();
+        foreach ($sellingAds as $myAdd) {
+            if ($myAdd->status == "pending") {
+                $sellingPending = $sellingPending + 1;
+            } elseif ($myAdd->status == "ordered") {
+                $sellingOrdered = $sellingOrdered + 1;
+            } else {
+                $sellingSold = $sellingSold + 1;
+            }
+        }
 
         return view('dashboard/seller/sellerBody', compact('userName'));
 

@@ -2,6 +2,8 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+
+
 function number_format(number, decimals, dec_point, thousands_sep) {
   // *     example: number_format(1234.56, 2, ',', ' ');
   // *     return: '1 234,56'
@@ -27,7 +29,21 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
-// Area Chart Example
+// Area Chart Seller
+
+var jan = $('#jan-adds').val().trim();
+var feb = $('#feb-adds').val().trim();
+var mar = $('#mar-adds').val().trim();
+var apr = $('#apr-adds').val().trim();
+var may = $('#may-adds').val().trim();
+var jun = $('#jun-adds').val().trim();
+var jul = $('#jul-adds').val().trim();
+var aug = $('#aug-adds').val().trim();
+var sep = $('#sep-adds').val().trim();
+var oct = $('#oct-adds').val().trim();
+var nov = $('#nov-adds').val().trim();
+var dec = $('#dec-adds').val().trim();
+
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
@@ -46,7 +62,9 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec],
+
+      // data: [jan, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
     }],
   },
   options: {

@@ -2,7 +2,7 @@
 
 @section('body')
     <style>
-        .text-back{
+        .text-back {
             color: #0b0b0b;
         }
     </style>
@@ -23,7 +23,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings
+                                    (Monthly)
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold text-back">$40,000</div>
                             </div>
                             <div class="col-auto">
@@ -40,7 +42,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings
+                                    (Annual)
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold text-back">$215,000</div>
                             </div>
                             <div class="col-auto">
@@ -64,7 +68,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
+                                                 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +88,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Advertisements</div>
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
+                                    Advertisements
+                                </div>
                                 <div class="h5 mb-0 font-weight-bold text-back">18</div>
                             </div>
                             <div class="col-auto">
@@ -111,6 +118,19 @@
                     <div class="card-body">
                         <div class="chart-area">
                             <canvas id="myAreaChart"></canvas>
+                            <input type="hidden" id="jan-adds" value="0"/>
+                            <input type="hidden" id="feb-adds" value="70"/>
+                            <input type="hidden" id="mar-adds" value="70"/>
+                            <input type="hidden" id="apr-adds" value="70"/>
+                            <input type="hidden" id="may-adds" value="70"/>
+                            <input type="hidden" id="jun-adds" value="70"/>
+                            <input type="hidden" id="jul-adds" value="70"/>
+                            <input type="hidden" id="aug-adds" value="70"/>
+                            <input type="hidden" id="sep-adds" value="70"/>
+                            <input type="hidden" id="oct-adds" value="70"/>
+                            <input type="hidden" id="nov-adds" value="70"/>
+                            <input type="hidden" id="dec-adds" value="70"/>
+
                         </div>
                     </div>
                 </div>
@@ -127,16 +147,19 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-pie pt-4 pb-2">
-                            <canvas id="myPieChart"></canvas>
+                            <canvas id="sellerPieChart"></canvas>
                         </div>
                         <div class="mt-4 text-center small">
                 <span class="mr-2">
+                    <input type="hidden" id="open-adds" value="70"/>
                     <i class="fas fa-circle text-primary"></i> Open
                 </span>
                             <span class="mr-2">
+                                <input type="hidden" id="ordered-adds" value="20"/>
                     <i class="fas fa-circle text-success"></i> Ordered
                 </span>
                             <span class="mr-2">
+                                <input type="hidden" id="sold-adds" value="10" />
                     <i class="fas fa-circle text-info"></i> Sold
                 </span>
                         </div>
@@ -148,4 +171,6 @@
         <!-- Content Row -->
 
     </div>
+
+
 @endsection 
