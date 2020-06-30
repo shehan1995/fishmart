@@ -64,7 +64,7 @@
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Advertisements</div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-back">50%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-back">{{$details['advertisements']}}%</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
@@ -91,7 +91,7 @@
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
                                     Advertisements
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-back">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-back">{{$details['pendingAdds']}}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -118,18 +118,18 @@
                     <div class="card-body">
                         <div class="chart-area">
                             <canvas id="myAreaChart"></canvas>
-                            <input type="hidden" id="jan-adds" value="0"/>
-                            <input type="hidden" id="feb-adds" value="70"/>
-                            <input type="hidden" id="mar-adds" value="70"/>
-                            <input type="hidden" id="apr-adds" value="70"/>
-                            <input type="hidden" id="may-adds" value="70"/>
-                            <input type="hidden" id="jun-adds" value="70"/>
-                            <input type="hidden" id="jul-adds" value="70"/>
-                            <input type="hidden" id="aug-adds" value="70"/>
-                            <input type="hidden" id="sep-adds" value="70"/>
-                            <input type="hidden" id="oct-adds" value="70"/>
-                            <input type="hidden" id="nov-adds" value="70"/>
-                            <input type="hidden" id="dec-adds" value="70"/>
+                            <input type="hidden" id="jan-adds" value="{{$details['jan']}}"/>
+                            <input type="hidden" id="feb-adds" value="{{$details['feb']}}"/>
+                            <input type="hidden" id="mar-adds" value="{{$details['mar']}}"/>
+                            <input type="hidden" id="apr-adds" value="{{$details['apr']}}"/>
+                            <input type="hidden" id="may-adds" value="{{$details['may']}}"/>
+                            <input type="hidden" id="jun-adds" value="{{$details['jun']}}"/>
+                            <input type="hidden" id="jul-adds" value="{{$details['jul']}}"/>
+                            <input type="hidden" id="aug-adds" value="{{$details['aug']}}"/>
+                            <input type="hidden" id="sep-adds" value="{{$details['sep']}}"/>
+                            <input type="hidden" id="oct-adds" value="{{$details['oct']}}"/>
+                            <input type="hidden" id="nov-adds" value="{{$details['nov']}}"/>
+                            <input type="hidden" id="dec-adds" value="{{$details['dec']}}"/>
 
                         </div>
                     </div>
@@ -151,15 +151,15 @@
                         </div>
                         <div class="mt-4 text-center small">
                 <span class="mr-2">
-                    <input type="hidden" id="open-adds" value="70"/>
+                    <input type="hidden" id="open-adds" value="{{$details['openStatus']}}"/>
                     <i class="fas fa-circle text-primary"></i> Open
                 </span>
                             <span class="mr-2">
-                                <input type="hidden" id="ordered-adds" value="20"/>
+                                <input type="hidden" id="ordered-adds" value="{{$details['orderedStatus']}}"/>
                     <i class="fas fa-circle text-success"></i> Ordered
                 </span>
                             <span class="mr-2">
-                                <input type="hidden" id="sold-adds" value="10" />
+                                <input type="hidden" id="sold-adds" value="{{$details['soldStatus']}}" />
                     <i class="fas fa-circle text-info"></i> Sold
                 </span>
                         </div>

@@ -95,6 +95,13 @@
                 <span>Pending Orders</span></a>
         </li>
 
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('dashboard/seller/confirmOrders')}}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Confirm Orders</span></a>
+        </li>
+
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">

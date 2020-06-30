@@ -177,6 +177,29 @@ class SellerController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function viewConfirmOrders(){
+        try {
+            $user = auth()->user();
+            $userName = $user->name;
+
+            $data = array();
+            $myAdds = DB::table('selling_a_d_s')->where('users_id',$user->id)->get();
+            foreach ($myAdds as $myAdd){
+                $fishName=DB::table('fish')->where('id',$myAdd->fish_id)->first();
+                $orders = DB::table('orders')->where([['selling_id',$myAdd->id],['status','confirm']])->get();
+                $myAdd->orders = $orders;
+                $myAdd->fish_name = $fishName->name;
+                $myAdd->fish_total = $fishName->amount;
+                $addArray = array();
+                $addArray['orders']=$myAdd;
+                array_push($data,$addArray);
+            }
+            return view('dashboard/seller/viewConfirmOrders',compact('data'),compact('userName'));
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
     public function viewAdds(){
         try {
             $user = auth()->user();

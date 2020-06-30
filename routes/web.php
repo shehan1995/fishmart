@@ -40,6 +40,7 @@ Route::post('dashboard/seller/post-editProfile','SellerController@postEditProfil
 Route::get('dashboard/seller/createAdd','SellerController@createAdd');
 Route::post('dashboard/seller/post-createAdd','SellerController@postCreateAdd');
 Route::get('dashboard/seller/orders','SellerController@viewOrders');
+Route::get('dashboard/seller/confirmOrders','SellerController@viewConfirmOrders');
 Route::get('dashboard/seller/viewAdds','SellerController@viewAdds');
 Route::post('dashboard/seller/post-order/{orderStatus}','SellerController@postSetOrder')->name('setOrderStatus');
 
