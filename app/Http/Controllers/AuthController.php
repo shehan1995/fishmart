@@ -177,10 +177,10 @@ class AuthController extends Controller
             }
         }
         $details['pendingAdds'] = $sellingPending;
-        $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
-        $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
-        $details['orderedStatus'] = ($sellingOrdered * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
-        $details['soldStatus'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
+        $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
+        $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
+        $details['orderedStatus'] = ($sellingOrdered * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
+        $details['soldStatus'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
 
         $year = Carbon::parse(2020);
         $orders = DB::table('selling_a_d_s')->leftJoin('orders', 'selling_a_d_s.id', '=', 'orders.selling_id')
