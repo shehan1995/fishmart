@@ -153,7 +153,10 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span style="font-size: medium; font-weight: bold"
                                       class="mr-2 d-none d-lg-inline text-modified small">{{$userName}}</span>
-                                <img class="img-profile rounded-circle" src="{{asset("assets/img/profile.png")}}">
+{{--                                <img class="img-profile rounded-circle" src="{{asset("assets/img/profile.png")}}">--}}
+                                <img class="img-profile rounded-circle" src="{{asset($details['user_image'])}}">
+{{--                                <img class="img-profile rounded-circle" src="{{storage_path($details['user_image'])}}">--}}
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

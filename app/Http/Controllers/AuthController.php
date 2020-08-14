@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Validator, Redirect, Response;
+use Intervention\Image\Facades\Image;
+use Validator, Redirect;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
+
+use Illuminate\Support\Facades\Response;
+
 
 class AuthController extends Controller
 {
@@ -22,11 +26,13 @@ class AuthController extends Controller
     public function registration()
     {
         if (Auth::check()) {
+
             $user = auth()->user();
             $userName = $user->name;
             if (($user->categary) == "Admin") {
                 return view('dashboard/admin/registration');
             }
+            return view('registration');
         } else {
             return view('registration');
         }
@@ -54,16 +60,23 @@ class AuthController extends Controller
             'nic' => 'required|unique:users',
             'email' => 'required|email',
             'password' => 'required|min:6',
+            'user_image' => 'required|image|max:2048',
         ]);
-
         $data = $request->all();
+
+        $path = $request->file('user_image')->storeAs('public/user',$data['nic']);
+
+
+        $data['user_image'] = "user/{$data['nic']}";
+
 
         try {
             $check = $this->create($data);
+            dump($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
-            dump($data);
-            return redirect()->back()->withInput()->withErrors(['nic' => 'Sorry nic and password not matched']);
+
+            return redirect()->back()->withInput()->withErrors(['nic' => 'OOps something with NIC. Please check']);
         }
 
     }
@@ -162,6 +175,8 @@ class AuthController extends Controller
     {
         $user = auth()->user();
         $userName = $user->name;
+
+        $details['user_image'] ="storage/{$user->image}" ;
 
         $sellingPending = 0;
         $sellingOrdered = 0;
@@ -345,7 +360,7 @@ class AuthController extends Controller
         $details['dec'] = $monthIncome;
 
 
-dump($details);
+//dump($details);
         return view('dashboard/seller/sellerBody', compact('userName'), compact('details'));
 
     }
@@ -361,7 +376,8 @@ dump($details);
             'address' => $data['address'],
             'number' => $data['number'],
             'categary' => $data['categary'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'image'=>$data['user_image']
         ]);
     }
 

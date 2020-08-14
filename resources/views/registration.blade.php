@@ -10,7 +10,7 @@
 </head>
 <body>
         <div class="signupbox">
-        <form action="{{url('post-registration')}}" method="POST" id="regForm">
+        <form action="{{url('post-registration')}}" method="POST" enctype="multipart/form-data" id="regForm">
             {{ csrf_field() }}
             <h2>Sign Up</h2>
 
@@ -60,7 +60,17 @@
                 @if ($errors->has('password'))
                   <span class="error">{{ $errors->first('password') }}</span>
                 @endif
-                
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-md-4" align="right">Select Profile Image</label>
+                    <div class="col-md-8">
+                        <input type="file" name="user_image" />
+                    </div>
+                </div>
+            </div>
+            @if ($errors->has('user_image'))
+                <span class="error">{{ $errors->first('user_image') }}</span>
+            @endif
                 <input type="submit" value="Sign Up"><br><br>
             <hr>
             <p>Have an account? <a href="{{url('login')}}">Log in</a></p>
