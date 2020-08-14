@@ -44,6 +44,7 @@ Route::get('dashboard/seller/confirmOrders','SellerController@viewConfirmOrders'
 Route::get('dashboard/seller/viewAdds','SellerController@viewAdds');
 Route::post('dashboard/seller/post-order/{orderStatus}','SellerController@postSetOrder')->name('setOrderStatus');
 
+Route::get('dashboard/buyer','AuthController@buyerDashboard');
 Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
 Route::post('dashboard/buyer/post-createAdd','BuyerController@postCreateAdd');
 Route::get('dashboard/buyer/viewSellingAdds','BuyerController@viewSellingAdds');

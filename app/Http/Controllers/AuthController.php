@@ -109,6 +109,7 @@ class AuthController extends Controller
     {
         $user = auth()->user();
         $userName = $user->name;
+        $details['user_image'] ="storage/{$user->image}" ;
 
         $sellingPending = 0;
         $sellingConfirmed = 0;
@@ -365,7 +366,15 @@ class AuthController extends Controller
 
     }
 
+    public function buyerDashboard(){
+        $user = auth()->user();
+        $userName = $user->name;
 
+        $details['user_image'] ="storage/{$user->image}" ;
+
+        return view('dashboard/buyer/buyerBody', compact('userName'), compact('details'));
+
+    }
     public function create(array $data)
     {
 
