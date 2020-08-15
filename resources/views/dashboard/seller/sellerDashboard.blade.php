@@ -20,23 +20,23 @@
     <link href="{{asset('css/css/sb-admin-2.css')}}" rel="stylesheet">
     <style>
         .image {
-            /*background-image: url("https://i.ibb.co/72BkCpv/16457165.jpg");*/
-            /*background-repeat: no-repeat, repeat;*/
-            /*background-size: 100% 100%;*/
-            /*position: relative;*/
-            /*height: 100vh;*/
-            /*opacity: 1;*/
+            background-image: url("https://i.ibb.co/72BkCpv/16457165.jpg");
+            background-repeat: no-repeat, repeat;
+            background-size: 100% 100%;
+            position: relative;
+            height: 100vh;
+            opacity: 1;
         }
 
         .image:before {
-            /*content: '';*/
-            /*opacity: 0.1;*/
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*right: 0;*/
-            /*left: 0;*/
-            /*bottom: 0;*/
-            /*background: rgba(0, 0, 0, 0.7);*/
+            content: '';
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .text-modified {

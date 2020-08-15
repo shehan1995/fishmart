@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use mysql_xdevapi\Exception;
 use Validator, Redirect;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -376,12 +377,210 @@ class AuthController extends Controller
 
     public function buyerDashboard(){
         $user = auth()->user();
-        $userName = $user->name;
-
+        $details['name'] = $user->name;
         $details['user_image'] ="storage/{$user->image}" ;
 
-        return view('dashboard/buyer/buyerBody', compact('userName'), compact('details'));
+        $orders = DB::table('orders')->where('buyer_id', $user->id)->get();
+        $pendingOrders=0;
+        $confirmOrders=0;
+        $rejectOrders=0;
+        foreach ($orders as $order){
+            if ($order->status == 'reject'){
+                $rejectOrders=$rejectOrders+1;
+            }elseif ($order->status == 'confirm'){
+                $confirmOrders=$confirmOrders+1;
+            }else{
+                $pendingOrders=$pendingOrders+1;
+            }
+        }
+        $details['pendingCount']=$pendingOrders;
+        try {
+            $details['pendingOrders']=$pendingOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
+            $details['confirmOrders']=$confirmOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
+            $details['rejectOrders']=$rejectOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
+        }catch (Exception $e){
+            $details['pendingOrders']=0;
+            $details['confirmOrders']=0;
+            $details['rejectOrders']=0;
+        }
 
+        $buyingAdds = DB::table('buying_a_d_s')->where('users_id', $user->id)->get()->count();
+        $details['buyingAds']=$buyingAdds;
+
+        $sellingAds = DB::table('selling_a_d_s')->get();
+
+        //get annual adds
+        $fromDate = Carbon::today();
+        $toYear = Carbon::today()->addYears(-1);
+        $annuals = $orders->whereBetween('updated_at', [$toYear, $fromDate])->where('status', '=', "confirm");
+        $annualIncome = 0;
+        foreach ($annuals as $annual){
+            $price = $sellingAds->where('id','=',$annual->selling_id);
+            foreach ($price as $p){
+                $annualIncome = $annualIncome+(($annual->amount)*$p->price);
+            }
+
+        }
+        $details['annual'] = $annualIncome;
+
+        //get monthly adds
+        $toMonth = Carbon::today()->addMonths(-1);
+        $monthly = $orders->whereBetween('updated_at', [$toMonth, $fromDate])->where('status', '=', "confirm");
+        $monthlyIncome = 0;
+        foreach ($monthly as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthlyIncome = $monthlyIncome+(($month->amount)*$p->price);
+            }
+
+        }
+        $details['monthly'] = $monthlyIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','1')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['jan'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','2')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['feb'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','3')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['mar'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','4')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['apr'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','5')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['may'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','6')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['jun'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','7')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['jul'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','8')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['aug'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','9')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['sep'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','10')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['oct'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','11')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['nov'] = $monthIncome;
+
+        $monthOrders = DB::table('orders')
+            ->where('buyer_id', $user->id)
+            ->where('status','=',"confirm")->whereMonth('updated_at','=','12')->get();
+        $monthIncome = 0;
+        foreach ($monthOrders as $month){
+            $price = $sellingAds->where('id','=',$month->selling_id);
+            foreach ($price as $p){
+                $monthIncome = $monthIncome+(($month->amount)*$p->price);
+            }
+        }
+        $details['dec'] = $monthIncome;
+
+        return view('dashboard/buyer/buyerBody', compact('userName'), compact('details'));
     }
     public function create(array $data)
     {

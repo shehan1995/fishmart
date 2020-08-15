@@ -13,6 +13,9 @@
             height: 450px;
             width: 500px;
         }
+        .imgBorder{
+            border-radius: 50%;
+        }
     </style>
     <div class="container-fluid">
         <!-- Page Heading -->
