@@ -88,8 +88,9 @@ class AdminController extends Controller
 
     public function createFish(){
         $user = auth()->user();
-        $userName = $user->name;
-        return view('dashboard/admin/adminFish',compact('userName'));
+        $details['name']= $user->name;
+        $details['user_image']= $user->image;
+        return view('dashboard/admin/adminFish',compact('details'));
     }
     public function postCreateFish(Request $request)
     {
@@ -112,13 +113,16 @@ class AdminController extends Controller
 
     public function editProfile(){
         $user = auth()->user();
-        $userName = $user->name;
-        return view('dashboard/admin/adminEditProfile',compact('user'),compact('userName'));
+        $details['name']= $user->name;
+        $details['user_image']= $user->image;
+
+        return view('dashboard/admin/adminEditProfile',compact('user'),compact('details'));
     }
     public function viewProfile(){
         $user = auth()->user();
-        $userName = $user->name;
-        return view('dashboard/admin/adminViewProfile',compact('user'),compact('userName'));
+        $details['name']= $user->name;
+        $details['user_image']= $user->image;
+        return view('dashboard/admin/adminViewProfile',compact('user'),compact('details'));
     }
 
     public function postEditProfile(Request $request){

@@ -13,6 +13,9 @@
             height: 450px;
             width: 500px;
         }
+        .imgBorder{
+            border-radius: 50%;
+        }
     </style>
     <div class="container-fluid">
         <!-- Page Heading -->
@@ -58,6 +61,14 @@
                                     </div>
                                     <div class="col-6">
                                         <label>{{$user->number}}</label>
+                                    </div>
+                                </div>
+                                <div style="padding-top: 10px; font-size: large" class="row">
+                                    <div class="col-6">
+                                        <label style="font-weight: bold">Image</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <img class="imgBorder" src="{{asset($details['user_image'])}}" width="100" height="100">
                                     </div>
                                 </div>
                             </div>

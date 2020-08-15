@@ -31,6 +31,7 @@
                         <th scope="col">Amount</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Date</th>
                     </tr>
                     </thead>
                     <tbody class="tb-body">
@@ -43,6 +44,7 @@
                             <td>{{$order->amount}}</td>
                             <td>{{$order->price}}</td>
                             <td>{{$order->status}}</td>
+                            <td>{{$order->created_at}}</td>
 
                         </tr>
 

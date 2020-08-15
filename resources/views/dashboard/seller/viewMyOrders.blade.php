@@ -30,6 +30,7 @@
                     <th scope="col">Amount</th>
                     <th scope="col">Price</th>
                     <th scope="col">Order Amount</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
@@ -44,6 +45,7 @@
                         <td>{{$order['orders']->amount}}</td>
                         <td>{{$order['orders']->price}}</td>
                         <td>{{$od->amount}}</td>
+                        <td>{{$order['orders']->created_at}}</td>
                         <td>
                             <div class="row">
                             <form action="{{route('setOrderStatus',['orderStatus'=>'confirm'])}}" method="POST" id="regForm">

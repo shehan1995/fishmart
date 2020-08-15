@@ -30,6 +30,7 @@
                     <th scope="col">Amount</th>
                     <th scope="col">Price</th>
                     <th scope="col">Order Amount</th>
+                    <th scope="col">Date</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@
                         <td>{{$order['orders']->amount}}</td>
                         <td>{{$order['orders']->price}}</td>
                         <td>{{$od->amount}}</td>
+                        <td>{{$order['orders']->created_at}}</td>
                     </tr>
 
                     @endforeach

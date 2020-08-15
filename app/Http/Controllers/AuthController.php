@@ -98,7 +98,8 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard/seller');
 
             } else {
-                return view('dashboard/buyer/buyerBody', compact('userName'));
+                return redirect()->intended('dashboard/buyer');
+
             }
 
         }
@@ -107,6 +108,7 @@ class AuthController extends Controller
 
     public function adminDashboard()
     {
+        //get user details
         $user = auth()->user();
         $userName = $user->name;
         $details['user_image'] ="storage/{$user->image}" ;
@@ -175,10 +177,11 @@ class AuthController extends Controller
     public function sellerDashboard()
     {
         $user = auth()->user();
-        $userName = $user->name;
 
         $details['user_image'] ="storage/{$user->image}" ;
+        $details['name'] =$user->name;
 
+        //get selling adds from database
         $sellingPending = 0;
         $sellingOrdered = 0;
         $sellingSold = 0;
@@ -192,6 +195,8 @@ class AuthController extends Controller
                 $sellingSold = $sellingSold + 1;
             }
         }
+
+        //set for dashboard parameters
         $details['pendingAdds'] = $sellingPending;
         $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
         $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
@@ -202,7 +207,8 @@ class AuthController extends Controller
         $orders = DB::table('selling_a_d_s')->leftJoin('orders', 'selling_a_d_s.id', '=', 'orders.selling_id')
             ->where('users_id', $user->id)->get();
 //        $orders = DB::table('orders')->where('selling_id',$user->id)->whereYear('created_at', '=', date('Y','2020'))->get();
-        dump($orders);
+
+        //get annual adds
         $fromDate = Carbon::today();
         $toYear = Carbon::today()->addYears(-1);
         $annuals = $orders->whereBetween('updated_at', [$toYear, $fromDate])->where('status', '=', "confirm");
@@ -216,8 +222,9 @@ class AuthController extends Controller
         }
         $details['annual'] = $annualIncome;
 
+        //get monthly adds
         $toMonth = Carbon::today()->addMonths(-1);
-        $monthly = $annuals;
+        $monthly = $orders->whereBetween('updated_at', [$toMonth, $fromDate])->where('status', '=', "confirm");
         $monthlyIncome = 0;
         foreach ($monthly as $month){
             $price = $sellingAds->where('id','=',$month->selling_id);
@@ -228,6 +235,7 @@ class AuthController extends Controller
         }
         $details['monthly'] = $monthlyIncome;
 
+        //get januart orders
         $janOrders = DB::table('selling_a_d_s')->leftJoin('orders', 'selling_a_d_s.id', '=', 'orders.selling_id')
             ->where('users_id', $user->id)->where('orders.status','=',"confirm")->whereMonth('orders.updated_at','=','1')->get();
         $janIncome = 0;

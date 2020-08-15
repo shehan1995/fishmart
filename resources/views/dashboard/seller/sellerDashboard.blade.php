@@ -152,7 +152,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span style="font-size: medium; font-weight: bold"
-                                      class="mr-2 d-none d-lg-inline text-modified small">{{$userName}}</span>
+                                      class="mr-2 d-none d-lg-inline text-modified small">{{$details['name']}}</span>
 {{--                                <img class="img-profile rounded-circle" src="{{asset("assets/img/profile.png")}}">--}}
                                 <img class="img-profile rounded-circle" src="{{asset($details['user_image'])}}">
 {{--                                <img class="img-profile rounded-circle" src="{{storage_path($details['user_image'])}}">--}}
