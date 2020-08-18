@@ -15,7 +15,6 @@ class HomeController extends Controller
             $buyingAdds = DB::table('buying_a_d_s')->where('status','pending')->orderBy('created_at','desc')->limit(5)->get();
             $data['sellingAdds'] = $sellingAdds;
             $data['buyingAdds'] = $buyingAdds;
-            dump($data);
             return view('index',compact($data));
         }catch (\Exception $e){
 

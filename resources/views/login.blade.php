@@ -27,6 +27,7 @@
                 <input type="submit" value="Log in"><br><br>
             <hr>
             <p>Don't have an account? <a href="{{url('registration')}}">Sign Up</a></p>
+            <p>Back to Home <a href="{{url('/')}}">Home</a></p>
         </form>
         </div>
       
