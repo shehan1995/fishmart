@@ -10,5 +10,6 @@ class Fish extends Model
         'name',
         'avg_price',
         'amount',
+        'image',
     ];
 }

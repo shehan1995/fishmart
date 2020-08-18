@@ -32,20 +32,24 @@
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody class="tb-body">
 
-                    @foreach($myAdds as $order)
+                    @foreach($myAdds as $add)
                         <tr>
                             {{--                    <th scope="row" class="counterCell">1</th>--}}
-                            <td>{{$order->id}}</td>
-                            <td>{{$order->fish_name}}</td>
-                            <td>{{$order->amount}}</td>
-                            <td>{{$order->price}}</td>
-                            <td>{{$order->status}}</td>
-                            <td>{{$order->created_at}}</td>
-
+                            <td>{{$add->id}}</td>
+                            <td>{{$add->fish_name}}</td>
+                            <td>{{$add->amount}}</td>
+                            <td>{{$add->price}}</td>
+                            <td>{{$add->status}}</td>
+                            <td>{{$add->created_at}}</td>
+                            <td>
+                                <a class="btn btn-success" href="{{route('editSellingAdStatus',['sellingAdId'=>$add->id , 'action'=>'sold'] )}}">Sold</a>
+                                <a class="btn btn-danger" href="{{route('editSellingAdStatus',['sellingAdId'=>$add->id , 'action'=>'cancel'] )}}">Cancel</a>
+                            </td>
                         </tr>
 
                     @endforeach

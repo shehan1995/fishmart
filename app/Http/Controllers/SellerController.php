@@ -247,6 +247,23 @@ class SellerController extends Controller
             return $e->getMessage();
         }
     }
+    public function editSellingAddStatus($sellingAdId,$action)
+    {
+        try {
+            $user = auth()->user();
+            $details['name'] = $user->name;
+            $details['user_image'] = "storage/{$user->image}";
+
+            $add = SellingAD::findOrFail($sellingAdId);
+            if($add) {
+                $add->status =$action;
+                $add->save();
+            }
+            return Redirect::to("/dashboard/seller/viewAdds")->withSuccess('Great! You have Successfully loggedin');
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     public function postSetOrder(Request $req, $orderStatus)
     {
@@ -273,4 +290,29 @@ class SellerController extends Controller
         }
 
     }
+
+    public function viewBuyingAds()
+    {
+        try {
+            $user = auth()->user();
+            $details['name'] = $user->name;
+            $details['user_image'] = "storage/{$user->image}";
+
+            $data = array();
+            $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','open')->get();
+            foreach ($buyingAdds as $buyingAdd) {
+                $fishName = DB::table('fish')->where('id', $buyingAdd->fish_id)->first();
+                $buyer = DB::table('users')->where('id', $buyingAdd->users_id)->get()->first();
+                $buyingAdd->buyer = $buyer->name;
+                $buyingAdd->fish_name = $fishName->name;
+                $addArray = array();
+                $addArray['adds'] = $buyingAdd;
+                array_push($data, $addArray);
+            }
+            return view('dashboard/seller/viewBuyingAds', compact('data'), compact('details'));
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 }

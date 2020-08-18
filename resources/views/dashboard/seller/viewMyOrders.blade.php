@@ -27,7 +27,7 @@
                 <tr>
                     <th scope="col">Add ID</th>
                     <th scope="col">Fish Name</th>
-                    <th scope="col">Amount</th>
+                    <th scope="col">Remaining Amount</th>
                     <th scope="col">Price</th>
                     <th scope="col">Order Amount</th>
                     <th scope="col">Date</th>

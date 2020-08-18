@@ -111,8 +111,8 @@ class AuthController extends Controller
     {
         //get user details
         $user = auth()->user();
-        $userName = $user->name;
         $details['user_image'] ="storage/{$user->image}" ;
+        $details['name'] =$user->name;
 
         $sellingPending = 0;
         $sellingConfirmed = 0;
@@ -172,7 +172,7 @@ class AuthController extends Controller
         $details['fish'] = $fishArray;
         $details['totalFish'] = $totalFish;
 //                dump($details);
-        return view('dashboard/admin/adminBody', compact('userName'), compact('details'));
+        return view('dashboard/admin/adminBody', compact('details'));
     }
 
     public function sellerDashboard()
@@ -199,10 +199,18 @@ class AuthController extends Controller
 
         //set for dashboard parameters
         $details['pendingAdds'] = $sellingPending;
-        $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
-        $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
-        $details['orderedStatus'] = ($sellingOrdered * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
-        $details['soldStatus'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered+1);
+        try {
+            $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
+            $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
+            $details['orderedStatus'] = ($sellingOrdered * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
+            $details['soldStatus'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
+        }catch (\Exception $e){
+            $details['advertisements'] = 0;
+            $details['openStatus'] = 0;
+            $details['orderedStatus'] = 0;
+            $details['soldStatus'] = 0;
+        }
+
 
         $year = Carbon::parse(2020);
         $orders = DB::table('selling_a_d_s')->leftJoin('orders', 'selling_a_d_s.id', '=', 'orders.selling_id')

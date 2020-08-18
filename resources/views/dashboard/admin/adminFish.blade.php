@@ -10,7 +10,7 @@
 
         .card-modified {
             padding-top: 50px;
-            height: 400px;
+            height: 600px;
             width: 500px;
         }
     </style>
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
                             <h3 class="login-heading mb-4">Add New Fish Here</h3>
-                            <form action="{{url('dashboard/admin/post-createFish')}}" method="POST" id="regForm">
+                            <form action="{{url('dashboard/admin/post-createFish')}}" method="POST" enctype="multipart/form-data" id="regForm">
                                 {{ csrf_field() }}
                                 <div class="form-label-group">
                                     <input type="text" id="inputName" name="name" class="form-control" placeholder="Fish Name" autofocus>
@@ -41,6 +41,17 @@
                                     @endif
 
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-4" align="right">Select Image</label>
+                                        <div class="col-md-8">
+                                            <input type="file" name="image" />
+                                        </div>
+                                    </div>
+                                </div>
+                                @if ($errors->has('image'))
+                                    <span class="error">{{ $errors->first('image') }}</span>
+                                @endif
                                 <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Submit</button>
                             </form>
                         </div>

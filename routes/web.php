@@ -32,6 +32,7 @@ Route::post('dashboard/admin/post-createFish','AdminController@postCreateFish');
 Route::post('dashboard/admin/post-editProfile','AdminController@postEditProfile');
 Route::get('dashboard/admin/profile-edit','AdminController@editProfile');
 Route::get('dashboard/admin/profile-view','AdminController@viewProfile');
+Route::get('dashboard/admin/viewFish','AdminController@viewFish');
 
 Route::get('dashboard/seller','AuthController@sellerDashboard');
 Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
@@ -42,7 +43,9 @@ Route::post('dashboard/seller/post-createAdd','SellerController@postCreateAdd');
 Route::get('dashboard/seller/orders','SellerController@viewOrders');
 Route::get('dashboard/seller/confirmOrders','SellerController@viewConfirmOrders');
 Route::get('dashboard/seller/viewAdds','SellerController@viewAdds');
+Route::get('dashboard/seller/viewBuyingAdds','SellerController@viewBuyingAds');
 Route::post('dashboard/seller/post-order/{orderStatus}','SellerController@postSetOrder')->name('setOrderStatus');
+Route::get('dashboard/seller/editAdd/{sellingAdId}/{action}','SellerController@editSellingAddStatus')->name('editSellingAdStatus');
 
 Route::get('dashboard/buyer','AuthController@buyerDashboard');
 Route::get('dashboard/buyer/createAdd','BuyerController@createAdd');
@@ -53,5 +56,7 @@ Route::post('dashboard/buyer/post-createOrder/{sellingId}',"BuyerController@post
 Route::get('dashboard/buyer/viewOrders','BuyerController@viewMyOrders');
 Route::post('dashboard/buyer/post-editProfile','BuyerController@postEditProfile');
 Route::get('dashboard/buyer/profile-edit','BuyerController@editProfile');
+Route::get('dashboard/buyer/viewBuyingAdds','BuyerController@viewBuyingAdds');
+Route::get('dashboard/buyer/cancelBuyingAd/{buyingAdId}','BuyerController@cancelBuyingAdd')->name('cancelBuyingAd');
 
 

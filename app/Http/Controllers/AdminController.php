@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fish;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -89,7 +90,7 @@ class AdminController extends Controller
     public function createFish(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image']= $user->image;
+        $details['user_image'] = "storage/{$user->image}";
         return view('dashboard/admin/adminFish',compact('details'));
     }
     public function postCreateFish(Request $request)
@@ -98,10 +99,15 @@ class AdminController extends Controller
         try {
             request()->validate([
                 'name' => 'required',
-                'avg_price'=>'required'
+                'avg_price'=>'required',
+                'image' => 'required|image|max:2048',
             ]);
             $data = $request->all();
+            $path = $request->file('image')->storeAs('public/fish',$data['name']);
+
             $data['amount']=0;
+            $data['image'] = "fish/{$data['name']}";
+
             $fish = Fish::create($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
         } catch (\Exception $e) {
@@ -109,19 +115,31 @@ class AdminController extends Controller
             return $e->getMessage();
         }
     }
+    public function viewFish(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
 
+        $fishes = DB::table('fish')->get();
+        foreach ($fishes as $fish) {
+            $img = "storage/{$fish->image}";
+            $fish->img=$img;
+        }
+        $details['fishes']=$fishes;
+        return view('dashboard/admin/viewFish',compact('user'),compact('details'));
+    }
 
     public function editProfile(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image']= $user->image;
+        $details['user_image'] = "storage/{$user->image}";
 
         return view('dashboard/admin/adminEditProfile',compact('user'),compact('details'));
     }
     public function viewProfile(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image']= $user->image;
+        $details['user_image'] = "storage/{$user->image}";
         return view('dashboard/admin/adminViewProfile',compact('user'),compact('details'));
     }
 

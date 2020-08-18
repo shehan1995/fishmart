@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BuyingAD;
 use App\Models\Order;
+use App\Models\SellingAD;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -130,7 +131,7 @@ class BuyerController extends Controller
 
             $data = $request->all();
             $data['users_id'] = $user->id;
-            $data['status'] = 'pending';
+            $data['status'] = 'open';
 
             $TotalFish = DB::table('fish')->where('id', $data['fish_id'])->first();
 
@@ -153,7 +154,10 @@ class BuyerController extends Controller
         $details['user_image'] ="storage/{$user->image}" ;
         $details['name']=$user->name;
 
-        $sellingAdds = DB::table('selling_a_d_s')->where('status','pending')->get();
+        $sellingAdds = DB::table('selling_a_d_s') ->where(function($query) {
+            $query->where('status', 'ordered')
+                ->orWhere('status', 'pending');
+        })->get();
         foreach ($sellingAdds as $sellingAdd){
             $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
             $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
@@ -161,6 +165,35 @@ class BuyerController extends Controller
             $sellingAdd->user = $seller->name;
         }
        return view('dashboard/buyer/viewSellingAdds',compact('details'),compact('sellingAdds'));
+    }
+
+    public function viewBuyingAdds(){
+        $user = auth()->user();
+
+        $details['user_image'] ="storage/{$user->image}" ;
+        $details['name']=$user->name;
+
+        $buyingAdds = DB::table('buying_a_d_s')->get();
+        foreach ($buyingAdds as $buyingAdd){
+            $fishName=DB::table('fish')->where('id',$buyingAdd->fish_id)->first();
+            $buyingAdd->fish_name = $fishName->name;
+        }
+        return view('dashboard/buyer/viewMyAdds',compact('details'),compact('buyingAdds'));
+    }
+    public function cancelBuyingAdd($buyingAdId){
+        try {
+
+            $add = BuyingAD::findOrFail($buyingAdId);
+            if($add) {
+                $add->status = 'cancel';
+                $add->save();
+            }
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+
+        return Redirect::to("/dashboard/buyer/viewBuyingAdds")->withSuccess('Great! You have Successfully loggedin');
     }
 
     public function setOrder($sellingId){
@@ -192,6 +225,11 @@ class BuyerController extends Controller
 
             Order::create($data);
 
+            $add = SellingAD::findOrFail($sellingId);
+            if($add) {
+                $add->status = 'ordered';
+                $add->save();
+            }
 
             return Redirect::to("dashboard/buyer/viewOrders")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
