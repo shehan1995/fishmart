@@ -145,7 +145,7 @@
                         <div class="mt-4 text-center small">
                 <span class="mr-2">
                     <input type="hidden" id="pending-orders" value="{{$details['pendingOrders']}}"/>
-                    <i class="fas fa-circle text-primary"></i> Open
+                    <i class="fas fa-circle text-primary"></i> Pending
                 </span>
                             <span class="mr-2">
                                 <input type="hidden" id="confirm-orders" value="{{$details['confirmOrders']}}"/>

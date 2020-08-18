@@ -1,19 +1,31 @@
 @extends('dashboard.buyer.buyerDashboard')
 
 @section('body')
+    <style>
+        .row-modified {
+            align-content: center;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .card-modified {
+            padding-top: 50px;
+            height: 550px;
+            width: 500px;
+        }
+    </style>
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-white">Buying Advertisement</h1>
-{{--        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>--}}
+            <h1 style="font-size: 70px; font-weight: bold" class="h3 mb-0 text-white">Buying Advertisement</h1>
         </div>
 
         <!-- Content Row -->
         <div class="container-fluid">
-            <div class="row no-gutter">
+            <div class="row row-modified no-gutter">
                 <div class="login d-flex align-items-center py-5">
-                    <div class="container">
+                    <div class="container card card-modified">
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">Buying Advertisement</h3>
