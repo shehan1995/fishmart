@@ -166,7 +166,7 @@ body {
 /* CSS Document */
 
 body{
-    margin-bottom: 100px;}
+    margin-bottom: 1px;}
 
 /* equal card height */
 .row-equal > div[class*='col-'] {

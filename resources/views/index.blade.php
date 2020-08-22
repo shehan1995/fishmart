@@ -45,8 +45,10 @@
 
   <!-- Navigation -->
   <nav class="navbar1 navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">FishMart</a>
+    <div class="container row">
+{{--      <a class="navbar-brand" href="#">--}}
+          <img src="images/logo.png" style="height: 50px; width: 50px">
+{{--      </a>--}}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -80,7 +82,22 @@
   <!-- Page Content -->
   <div class="container container-mod">
 
-    
+{{--    <section id="yt_spotlight1" class="block">--}}
+{{--      <div class="container">--}}
+{{--        <div class="row">--}}
+{{--          <div id="wrap-services" class="col-sm-12">--}}
+
+{{--            <ul class="wrap-services">--}}
+{{--              <li class="item2"><i class="icon2"></i><a href="#">free delivery above 2000 LKR</a></li>--}}
+{{--              <li class="item3"><i class="icon1"></i><a href="#">cash on delivery</a></li>--}}
+{{--              <li class="item4"><i class="icon4"></i><a href="#">call +94 719 579579</a></li>--}}
+{{--            </ul>--}}
+
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+
+{{--    </section>--}}
       <!-- /.col-lg-3 -->
 
       <div >
@@ -135,7 +152,7 @@
               <a href="#"><img class="card-img-top" src="images/1.jpg"alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish One</a>
+                  <a href="#">Thalapath තලපත්</a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
@@ -148,10 +165,10 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="images/2.jpg" alt=""></a>
+              <a href="#"><img class="card-img-top" src="images/tuna.png" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish Two</a>
+                  <a href="#"> බලයා Tuna</a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
@@ -164,10 +181,10 @@
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="images/3.jpg"alt=""></a>
+              <a href="#"><img class="card-img-top" src="images/isso.jpg"alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish Three</a>
+                  <a href="#"> ඉස්සෝ Prawns</a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
@@ -183,7 +200,7 @@
               <a href="#"><img class="card-img-top" src="images/4.jpg"alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish Four</a>
+                  <a href="#">දැල්ලෝ Cuttle Fish </a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
@@ -199,13 +216,13 @@
               <a href="#"><img class="card-img-top" src="images/5.jpg"alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish Five</a>
+                  <a href="#">කෙලවල්ලා Kelawalla</a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
               </div>
               <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <small class="text-uted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>
@@ -215,7 +232,7 @@
               <a href="#"><img class="card-img-top" src="images/0822.jpg"alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Fish Six</a>
+                  <a href="#">හුරුල්ලා Hurulla </a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text"></p>
@@ -350,10 +367,84 @@
 
   <!-- Footer -->
   <footer class="py-5 bg-primary" >
-    <div class="container">
+    <!-- /.container -->
+
+    <section id="yt_spotlight10" class="block">						<div class="container">
+        <div class="row">
+          <div id="bottom3" class="col-sm-3">
+
+            <div class="module  clearfix">
+              <h3 class="modtitle">Contact Us</h3>
+              <div class="modcontent clearfix">
+
+                <div class="el-map-info">
+                  <div class="el-desc"><img src="/templates/sj_megashop/images/logo_white.png" alt=""></div>
+                  <br>
+                  <div class="el-info-contact">
+                    <div class="info-address cf"><span class="info-label"><span class="icon-label"><img src="/templates/sj_megashop/images/icon/icon_map1.png" alt=""></span><span style="color: #ffffff;">89, Fish Super Market,<br> Peliyagoda, Sri Lanka</span></span>
+                    </div>
+                    <br>
+                    <div class="info-mobie cf"><span class="info-label" style="color: #ffffff;"><span class="icon-label"><img src="/templates/sj_megashop/images/icon/icon_map3.png" alt=""></span>+94 11-2323576/+94 719 579 579</span>
+                    </div>
+                    <br>
+                    <div class="info-mail cf"><span style="color: #ffffff;"><a href="mailto:info@freshfish.lk" class="info-label" style="color: #ffffff;"><span class="icon-label"><img src="/templates/sj_megashop/images/icon/icon_map2.png" alt=""></span></a><a href="mailto:info@freshfish.lk" style="color: #ffffff;">info@freshfish.lk</a></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div id="bottom4" class="col-sm-3">
+
+            <div class="module  clearfix">
+              <h3 class="modtitle">Find Us</h3>
+              <div class="modcontent clearfix">
+                <!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d126731.10281374092!2d79.888413!3d6.968332!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd1e2ffe1e5e39f4d!2sCentral+Fish+Market+Complex!5e0!3m2!1sen!2sus!4v1475568437238" width="280" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe><!-- END: Custom advanced (www.pluginaria.com) -->
+              </div>
+            </div>
+
+          </div>
+          <div id="bottom5" class="col-sm-3">
+
+            <div class="module  clearfix">
+              <h3 class="modtitle">About Us</h3>
+              <div class="modcontent clearfix">
+
+                <p><span style="color: #ffffff;">Fishmart.lk is the first &amp; only full fledged Online Seafood Store that sells fresh seafood online &amp; provides delivery to most parts of areas in Colombo. We have well over 8 years of experience in the fishing industry &amp; we are a supplier of seafood to fish sellers, restaurants &amp; for other occasional all over in Colombo. Now, we've opened an online store to cater to households in Colombo.</span></p>
+              </div>
+            </div>
+
+          </div>
+          <div id="bottom6" class="col-sm-3">
+
+            <div class="module  clearfix">
+              <h3 class="modtitle">Quick Menu</h3>
+              <div class="modcontent clearfix">
+
+                <ul>
+                  <li><span style="color: #ffffff;"><a href="/aboutfreshfish" style="color: #ffffff;">About Us</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="/aboutfreshfish/how-to-order" style="color: #ffffff;">Services</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="/aboutfreshfish/delivery-area" style="color: #ffffff;">Sign in</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="/aboutfreshfish/terms-conditions" style="color: #ffffff;">Terms &amp; Conditions</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="/products" style="color: #ffffff;">Products</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="#" style="color: #ffffff;">Sign Up</a></span></li>
+                  <li><span style="color: #ffffff;"><a href="/contact-us" style="color: #ffffff;">Contact Us</a></span></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="container" style="padding-top: 10px">
       <p class="m-0 text-center text-white">Copyright &copy; FishMart</p>
     </div>
-    <!-- /.container -->
+
   </footer>
 
   <!-- Bootstrap core JavaScript -->
