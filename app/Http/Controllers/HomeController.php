@@ -17,7 +17,7 @@ class HomeController extends Controller
             $data['buyingAdds'] = $buyingAdds;
             return view('index',compact($data));
         }catch (\Exception $e){
-
+            dump($e);
         }
 
     }  
