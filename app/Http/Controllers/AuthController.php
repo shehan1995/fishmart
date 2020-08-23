@@ -413,7 +413,7 @@ class AuthController extends Controller
             $details['rejectOrders']=0;
         }
 
-        $buyingAdds = DB::table('buying_a_d_s')->where('users_id', $user->id)->where('status','pending')->get()->count();
+        $buyingAdds = DB::table('buying_a_d_s')->where('users_id', $user->id)->where('status','open')->get()->count();
         $details['buyingAds']=$buyingAdds;
 
         $sellingAds = DB::table('selling_a_d_s')->get();
