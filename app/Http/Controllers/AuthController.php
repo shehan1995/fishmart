@@ -232,7 +232,7 @@ class AuthController extends Controller
         $details['annual'] = $annualIncome;
 
         //get monthly adds
-        $toMonth = Carbon::today()->addMonths(-1);
+        $toMonth = Carbon::tomorrow()->addMonths(-1);
         $monthly = $orders->whereBetween('updated_at', [$toMonth, $fromDate])->where('status', '=', "confirm");
         $monthlyIncome = 0;
         foreach ($monthly as $month){
