@@ -173,7 +173,7 @@ class BuyerController extends Controller
         $details['user_image'] ="storage/{$user->image}" ;
         $details['name']=$user->name;
 
-        $buyingAdds = DB::table('buying_a_d_s')->get();
+        $buyingAdds = DB::table('buying_a_d_s')->where('users_id',$user->id)->get();
         foreach ($buyingAdds as $buyingAdd){
             $fishName=DB::table('fish')->where('id',$buyingAdd->fish_id)->first();
             $buyingAdd->fish_name = $fishName->name;
