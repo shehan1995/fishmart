@@ -299,7 +299,7 @@ class SellerController extends Controller
             $details['user_image'] = "storage/{$user->image}";
 
             $data = array();
-            $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','open')->get();
+            $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','pending')->get();
             foreach ($buyingAdds as $buyingAdd) {
                 $fishName = DB::table('fish')->where('id', $buyingAdd->fish_id)->first();
                 $buyer = DB::table('users')->where('id', $buyingAdd->users_id)->get()->first();

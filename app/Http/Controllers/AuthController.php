@@ -218,7 +218,7 @@ class AuthController extends Controller
 //        $orders = DB::table('orders')->where('selling_id',$user->id)->whereYear('created_at', '=', date('Y','2020'))->get();
 
         //get annual adds
-        $fromDate = Carbon::today();
+        $fromDate = Carbon::tomorrow();
         $toYear = Carbon::today()->addYears(-1);
         $annuals = $orders->whereBetween('updated_at', [$toYear, $fromDate])->where('status', '=', "confirm");
         $annualIncome = 0;
@@ -232,7 +232,7 @@ class AuthController extends Controller
         $details['annual'] = $annualIncome;
 
         //get monthly adds
-        $toMonth = Carbon::tomorrow()->addMonths(-1);
+        $toMonth = Carbon::today()->addMonths(-1);
         $monthly = $orders->whereBetween('updated_at', [$toMonth, $fromDate])->where('status', '=', "confirm");
         $monthlyIncome = 0;
         foreach ($monthly as $month){
@@ -242,6 +242,7 @@ class AuthController extends Controller
             }
 
         }
+        dump($toMonth);
         $details['monthly'] = $monthlyIncome;
 
         //get januart orders
