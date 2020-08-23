@@ -402,11 +402,11 @@ class AuthController extends Controller
             }
         }
         $details['pendingCount']=$pendingOrders;
-        try {
+        if ($pendingOrders!=0 && $confirmOrders !=0 && $rejectOrders !=0){
             $details['pendingOrders']=$pendingOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
             $details['confirmOrders']=$confirmOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
             $details['rejectOrders']=$rejectOrders*100/($pendingOrders+$confirmOrders+$rejectOrders);
-        }catch (Exception $e){
+        }else{
             $details['pendingOrders']=0;
             $details['confirmOrders']=0;
             $details['rejectOrders']=0;
