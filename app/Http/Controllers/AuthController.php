@@ -192,7 +192,7 @@ class AuthController extends Controller
                 $sellingPending = $sellingPending + 1;
             } elseif ($myAdd->status == "ordered") {
                 $sellingOrdered = $sellingOrdered + 1;
-            } else {
+            } elseif  ($myAdd->status == "cancel"){
                 $sellingSold = $sellingSold + 1;
             }
         }
