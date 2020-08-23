@@ -192,7 +192,7 @@ class AuthController extends Controller
                 $sellingPending = $sellingPending + 1;
             } elseif ($myAdd->status == "ordered") {
                 $sellingOrdered = $sellingOrdered + 1;
-            } elseif  ($myAdd->status == "cancel"){
+            } elseif  ($myAdd->status == "sold"){
                 $sellingSold = $sellingSold + 1;
             }
         }
@@ -419,7 +419,7 @@ class AuthController extends Controller
         $sellingAds = DB::table('selling_a_d_s')->get();
 
         //get annual adds
-        $fromDate = Carbon::today();
+        $fromDate = Carbon::tomorrow();
         $toYear = Carbon::today()->addYears(-1);
         $annuals = $orders->whereBetween('updated_at', [$toYear, $fromDate])->where('status', '=', "confirm");
         $annualIncome = 0;
