@@ -73,7 +73,7 @@ class AuthController extends Controller
 
         try {
             $check = $this->create($data);
-            dump($data);
+//            dump($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
 
@@ -242,7 +242,7 @@ class AuthController extends Controller
             }
 
         }
-        dump($toMonth);
+//        dump($toMonth);
         $details['monthly'] = $monthlyIncome;
 
         //get januart orders
