@@ -183,7 +183,7 @@
                                 @foreach($details['fish'] as $fish)
                                 <h5 class="m-b-30 f-w-700">{{$fish['name']}}</h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-c-red" style="width:{{$fish['count'] *100 / $details['totalFish']}}%"></div>
+                                    <div class="progress-bar bg-c-red" style="width:{{$fish['fish_bar']}}%"></div>
                                 </div>
                                 @endforeach
                             </div>

@@ -426,7 +426,7 @@
                     </div>
 
                 </div>
-                <div id="bottom5" class="col-sm-3" style="padding-left: 100px">
+                <div id="bottom5" class="col-sm-3" style="padding-left: 10px">
 
                     <div class="module  clearfix">
                         <h3 class="modtitle">About Us</h3>
@@ -441,27 +441,30 @@
                 <div id="bottom6" class="col-sm-3">
 
                     <div class="module  clearfix">
-                        <h3 class="modtitle">Quick Menu</h3>
-                        <div class="modcontent clearfix">
+                        <h3 class="modtitle">Feedback</h3>
+                        <form action="{{url('admin/feedback')}}" method="POST" enctype="multipart/form-data" id="feedback">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label style="color: white" for="name">Name</label>
+                                    <label style="color: white" for="num">Contact Number</label>
+                                    <label style="color: white" for="description">Say</label>
 
-                            <ul>
-                                <li><span style="color: #ffffff;"><a href="/aboutfreshfish" style="color: #ffffff;">About Us</a></span>
-                                </li>
-                                <li><span style="color: #ffffff;"><a href="/aboutfreshfish/how-to-order"
-                                                                     style="color: #ffffff;">Services</a></span></li>
-                                <li><span style="color: #ffffff;"><a href="/aboutfreshfish/delivery-area"
-                                                                     style="color: #ffffff;">Sign in</a></span></li>
-                                <li><span style="color: #ffffff;"><a href="/aboutfreshfish/terms-conditions"
-                                                                     style="color: #ffffff;">Terms &amp; Conditions</a></span>
-                                </li>
-                                <li><span style="color: #ffffff;"><a href="/products"
-                                                                     style="color: #ffffff;">Products</a></span></li>
-                                <li><span style="color: #ffffff;"><a href="#" style="color: #ffffff;">Sign Up</a></span>
-                                </li>
-                                <li><span style="color: #ffffff;"><a href="/contact-us" style="color: #ffffff;">Contact Us</a></span>
-                                </li>
-                            </ul>
-                        </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="name" name="firstname" placeholder="Your name..">
+                                    <input type="text" id="number" name="lastname" placeholder="Your contact number..">
+                                    <textarea id="description" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary text-uppercase" type="submit">Submit</button>
+
+{{--                                <input type="submit" value="Submit">--}}
+                            </div>
+
+
+                        </form>
                     </div>
 
                 </div>

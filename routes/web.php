@@ -24,6 +24,7 @@ Route::get('registration', 'AuthController@registration');
 Route::post('post-registration', 'AuthController@postRegistration'); 
 Route::get('dashboard', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
+Route::get('admin/feedback', 'AdminController@feedback');
 
 
 Route::get('dashboard/admin','AuthController@adminDashboard');

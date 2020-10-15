@@ -108,9 +108,19 @@ class AuthController extends Controller
 
     public function adminDashboard()
     {
+        if (!Auth::check()) {
+            return Redirect::to("login")->withSuccess('Opps! You do not have access');
+        }
         //get user details
         $user = auth()->user();
-        $details['user_image'] ="storage/{$user->image}" ;
+        dump($user);
+        try {
+            $details['user_image'] ="storage/{$user->image}" ;
+        }catch (Exception $e){
+            $details['user_image'] ="storage/default_user.png" ;
+            return dump($e);
+        }
+        $details['user_image'] ="storage/default_user.png" ;
         $details['name'] =$user->name;
 
         $sellingPending = 0;
@@ -182,13 +192,21 @@ class AuthController extends Controller
         $totalFish = 0;
         $fishArray = [];
         foreach ($fish as $f) {
+            $totalFish = $totalFish + ($f->amount);
+        }
+        foreach ($fish as $f) {
             $fArray['name'] = $f->name;
             $fArray['count'] = $f->amount;
-            $totalFish = $totalFish + ($f->amount);
+            if($totalFish!=0){
+                $fArray['fish_bar']=$f->amount *100 /$totalFish;
+            }else{
+                $fArray['fish_bar']=0;
+            }
             array_push($fishArray, $fArray);
         }
         $details['fish'] = $fishArray;
         $details['totalFish'] = $totalFish;
+
 //                dump($details);
         return view('dashboard/admin/adminBody', compact('details'));
     }
