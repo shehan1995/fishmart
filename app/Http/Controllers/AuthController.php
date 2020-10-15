@@ -73,11 +73,10 @@ class AuthController extends Controller
 
         try {
             $check = $this->create($data);
-//            dump($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
-
-            return redirect()->back()->withInput()->withErrors(['nic' => 'OOps something with NIC. Please check']);
+        dump($e->getMessage());
+            return redirect()->back()->withInput()->withErrors(['nic' => $e->getMessage()]);
         }
 
     }
@@ -128,9 +127,15 @@ class AuthController extends Controller
             }
         }
         $details['selling'] = count($sellingAds);
-        $details['sellingPending'] = $sellingPending * 100 / count($sellingAds);
-        $details['sellingConfirmed'] = $sellingConfirmed * 100 / count($sellingAds);
-        $details['sellingInactive'] = $sellingInactive * 100 / count($sellingAds);
+        if(count($sellingAds)!=0){
+            $details['sellingPending'] = $sellingPending * 100 / count($sellingAds);
+            $details['sellingConfirmed'] = $sellingConfirmed * 100 / count($sellingAds);
+            $details['sellingInactive'] = $sellingInactive * 100 / count($sellingAds);
+        }else{
+            $details['sellingPending'] = 0;
+            $details['sellingConfirmed'] = 0;
+            $details['sellingInactive'] = 0;
+        }
 
         $buyningOpen = 0;
         $buyingCancel = 0;
@@ -143,8 +148,15 @@ class AuthController extends Controller
             }
         }
         $details['buying'] = count($buyingAdds);
-        $details['buyingOpen'] = $buyningOpen * 100 / (count($buyingAdds) + 1);
-        $details['buyingCancel'] = $buyingCancel * 100 / (count($buyingAdds) + 1);
+
+        if (count($buyingAdds)!=0){
+            $details['buyingOpen'] = $buyningOpen * 100 / (count($buyingAdds));
+            $details['buyingCancel'] = $buyingCancel * 100 / (count($buyingAdds));
+        }else{
+            $details['buyingOpen'] = 0;
+            $details['buyingCancel'] =0;
+        }
+
 
         $sellers = 0;
         $buyer = 0;
@@ -156,8 +168,14 @@ class AuthController extends Controller
                 $buyer = $buyer + 1;
             }
         }
-        $details['sellers'] = $sellers * 100 / count($users);
-        $details['buyers'] = $buyer * 100 / count($users);
+        if (count($users)!=0){
+            $details['sellers'] = $sellers * 100 / count($users);
+            $details['buyers'] = $buyer * 100 / count($users);
+        }else{
+            $details['sellers'] =0;
+            $details['buyers'] = 0;
+        }
+
         $details['users'] = count($users);
 
         $fish = DB::table('fish')->get();
