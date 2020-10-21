@@ -443,6 +443,7 @@
                     <div class="module  clearfix">
                         <h3 class="modtitle">Feedback</h3>
                         <form action="{{url('admin/feedback')}}" method="POST" enctype="multipart/form-data" id="feedback">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-2">
                                     <label style="color: white" for="name">Name</label>
@@ -451,9 +452,9 @@
 
                                 </div>
                                 <div class="col-md-10">
-                                    <input type="text" id="name" name="firstname" placeholder="Your name..">
-                                    <input type="text" id="number" name="lastname" placeholder="Your contact number..">
-                                    <textarea id="description" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                                    <input type="text" id="name" name="name" placeholder="Your name..">
+                                    <input type="text" id="number" name="number" placeholder="Your contact number..">
+                                    <textarea id="description" name="description" placeholder="Write something.." style="height:170px"></textarea>
 
                                 </div>
                             </div>

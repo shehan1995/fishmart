@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fish;
+use App\Models\Feedback;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -161,5 +162,18 @@ class AdminController extends Controller
         }
 
         return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+    }
+
+    public function submitFeedback(Request $request){
+        try {
+            $data['name'] = $request->name;
+            $data['number'] = $request->number;
+            $data['description']= $request->description;
+            $data['status'] = "pending";
+            Feedback::create($data);
+            return Redirect::to("/")->withSuccess('Great! You have Successfully Submit');
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
     }
 }
