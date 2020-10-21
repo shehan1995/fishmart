@@ -95,6 +95,13 @@
         <span>View Fish</span></a>
     </li>
 
+    <!-- Nav Item - Fish Add -->
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('dashboard/admin/viewFeedbacks')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>View Feedbacks</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

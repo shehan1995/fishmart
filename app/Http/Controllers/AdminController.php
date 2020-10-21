@@ -176,4 +176,30 @@ class AdminController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function viewFeedback(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        $details['feedbacks'] = DB::table('feedback')->get();
+        return view('dashboard/admin/viewFeedback',compact('user'),compact('details'));
+    }
+
+    public function updateFeedback($feedbackId){
+        dump($feedbackId);
+        try {
+
+            $feedback = Feedback::findOrFail($feedbackId);
+            if($feedback) {
+                $feedback->status = 'Responded';
+                $feedback->save();
+            }
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+
+        return Redirect::to("/dashboard/admin/viewFeedbacks")->withSuccess('Great! You have Successfully loggedin');
+
+    }
 }
