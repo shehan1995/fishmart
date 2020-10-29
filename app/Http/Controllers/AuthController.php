@@ -416,7 +416,7 @@ class AuthController extends Controller
 
 
 //dump($details);
-        return view('dashboard/seller/sellerBody', compact('userName'), compact('details'));
+        return view('dashboard/seller/sellerBody', compact('details'));
 
     }
 
