@@ -42,7 +42,7 @@
                         <td>{{$fish->amount}}</td>
                         <td>{{$fish->avg_price}}</td>
                         <td>
-                            <img class="imgBorder" src="{{asset($fish->img)}}" width="100" height="100">
+                            <img class="imgBorder" src="{{$fish->img}}" width="100" height="100">
                         </td>
                         <td>
                             <a class="btn btn-success" href="{{route('editFish',['fishId'=>$fish->id])}}">Edit</a>
