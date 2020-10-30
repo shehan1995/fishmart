@@ -36,6 +36,8 @@ Route::post('dashboard/admin/post-editProfile','AdminController@postEditProfile'
 Route::get('dashboard/admin/profile-edit','AdminController@editProfile');
 Route::get('dashboard/admin/profile-view','AdminController@viewProfile');
 Route::get('dashboard/admin/viewFish','AdminController@viewFish');
+Route::get('dashboard/admin/editFish/{fishId}','AdminController@editFish')->name('editFish');
+Route::post('dashboard/admin/post-editFish','AdminController@postEditFish');
 Route::get('dashboard/admin/viewFeedbacks','AdminController@viewFeedback');
 Route::get('dashboard/admin/updateFeedback/{feedbackId}','AdminController@updateFeedback')->name('updateFeedback');
 

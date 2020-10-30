@@ -113,14 +113,13 @@ class AuthController extends Controller
         }
         //get user details
         $user = auth()->user();
-        dump($user);
         try {
             $details['user_image'] ="storage/{$user->image}" ;
         }catch (Exception $e){
             $details['user_image'] ="storage/default_user.png" ;
             return dump($e);
         }
-        $details['user_image'] ="storage/default_user.png" ;
+//        $details['user_image'] ="storage/default_user.png" ;
         $details['name'] =$user->name;
 
         $sellingPending = 0;
@@ -215,7 +214,13 @@ class AuthController extends Controller
     {
         $user = auth()->user();
 
-        $details['user_image'] ="storage/{$user->image}" ;
+        try {
+            $details['user_image'] ="storage/{$user->image}" ;
+        }catch (Exception $e){
+            $details['user_image'] ="storage/default_user.png" ;
+            return dump($e);
+        }
+
         $details['name'] =$user->name;
 
         //get selling adds from database
@@ -423,8 +428,12 @@ class AuthController extends Controller
     public function buyerDashboard(){
         $user = auth()->user();
         $details['name'] = $user->name;
-        $details['user_image'] ="storage/{$user->image}" ;
-
+        try {
+            $details['user_image'] ="storage/{$user->image}" ;
+        }catch (Exception $e){
+            $details['user_image'] ="storage/default_user.png" ;
+            return dump($e);
+        }
         $orders = DB::table('orders')->where('buyer_id', $user->id)->get();
         $pendingOrders=0;
         $confirmOrders=0;

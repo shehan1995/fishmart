@@ -30,7 +30,6 @@
                     <th scope="col">Fish Name</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Date</th>
                     <th scope="col">Image</th>
                 </tr>
                 </thead>
@@ -42,11 +41,12 @@
                         <td>{{$fish->name}}</td>
                         <td>{{$fish->amount}}</td>
                         <td>{{$fish->avg_price}}</td>
-                        <td>{{$fish->created_at}}</td>
                         <td>
                             <img class="imgBorder" src="{{asset($fish->img)}}" width="100" height="100">
                         </td>
-
+                        <td>
+                            <a class="btn btn-success" href="{{route('editFish',['fishId'=>$fish->id])}}">Edit</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
