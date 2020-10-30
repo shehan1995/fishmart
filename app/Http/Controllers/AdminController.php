@@ -112,7 +112,7 @@ class AdminController extends Controller
             $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
             $data['image'] = $response;
 
-//            $fish = Fish::create($data);
+            $fish = Fish::create($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
         } catch (\Exception $e) {
 
