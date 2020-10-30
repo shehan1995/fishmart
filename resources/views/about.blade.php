@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FishMart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendorHome/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="cssHome/shop-homepage.css" rel="stylesheet">
+    <style>
+        .navbar1 {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: .5rem 1rem
+        }
+
+        .nav-mod {
+            float: right;
+        }
+
+        .container-mod {
+            /*padding-top: 50px;*/
+            /*margin: 10px;*/
+        }
+
+        .nav-text {
+            font-size: x-large;
+            /*font-weight: bold;*/
+            color: #d0d0d0;
+        !important;
+            margin-right: 10px;
+        }
+
+        .img-card {
+            height: 182px;
+        }
+
+        .fish-name {
+            font-size: xx-large;
+        }
+        .modtitle{
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: #00abf0;">
+
+<!-- Navigation -->
+<nav class="navbar1 navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container row" style="width: fit-content ;height: 60px; padding-left: 70px">
+        {{--      <a class="navbar-brand" href="#">--}}
+        <img src="images/logo.png" style="height: 250px; width: 250px">
+        {{--      </a>--}}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-left: 70px">
+            <ul class="nav-mod navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-text" href="{{url('/')}}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  nav-text" href="{{url('/about')}}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  nav-text" href="{{url('/store')}}">Store</a>
+                </li>
+                <li class="nav-item pl-2 mb-2 mb-md-0">
+                    <a href="{{ url('/login') }}" type="button"
+                       class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light  nav-text">Sign
+                        in</a>
+                </li>
+                <li class="nav-item pl-2 mb-2 mb-md-0">
+                    <a href="{{ url('/registration') }}" type="button"
+                       class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light  nav-text">Sign
+                        up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class=" container-mod">
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Section Title -->
+            <div class="section-title" style="color: dimgrey;">
+                <img src="images/logo.png" style="height: 250px; width: 250px">
+
+                <h1 style="color: black; font-size: xx-large; font-weight: bold; "> ලෙල්ලම.lk -- අපි ගැන  --</h1>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+   <div class="container-mod" style="padding: 50px">
+       <div class="col-sm-12">
+       <p style="text-align: justify; font-size: large">fishmart.lk is the first &amp; only full fledged Online Seafood Store that sells fresh seafood online &amp; provides delivery to most parts of areas in Colombo. We have well over 8 years of experience in the fishing industry &amp; we are a supplier of seafood to fish sellers, restaurants &amp; for other occasional all over in Colombo. Now, we've opened an online store to cater to households in Colombo.</p>
+       <p style="text-align: justify;font-size: large">All seafood sold on our website are from our daily catch. The seafood delivered to you are so fresh, None of the fresh seafood sold have ever touched the freezer. In an effort for us to make sure that the products we sell remain fresh until your doorstep, all orders are delivered directly from Peliyagoda our outlet to your doorstep.</p>
+       </div>
+
+   </div>
+</div>
+</div>
+<!-- /.col-lg-9 -->
+
+<!-- /.row -->
+
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark" style="margin-top: 30px">
+    <!-- /.container -->
+
+    <section id="yt_spotlight10" class="block">
+{{--        <div class="container">--}}
+            <div class="row">
+                <div id="bottom3" class="col-sm-3" style="padding-right: 100px; padding-left: 100px">
+
+                    <div class="module  clearfix">
+                        <h3 class="modtitle">Contact Us</h3>
+                        <div class="modcontent clearfix">
+
+                            <div class="el-map-info">
+                                <div class="el-desc"><img src="/templates/sj_megashop/images/logo_white.png" alt="">
+                                </div>
+                                <br>
+                                <div class="el-info-contact">
+                                    <div class="info-address cf"><span class="info-label"><span class="icon-label"><img
+                                                        src="/templates/sj_megashop/images/icon/icon_map1.png"
+                                                        alt=""></span><span style="color: #ffffff;">89, Fish Super Market,<br> Peliyagoda, Sri Lanka</span></span>
+                                    </div>
+                                    <br>
+                                    <div class="info-mobie cf"><span class="info-label" style="color: #ffffff;"><span
+                                                    class="icon-label"><img
+                                                        src="/templates/sj_megashop/images/icon/icon_map3.png"
+                                                        alt=""></span>+94 11-2323576/+94 719 579 579</span>
+                                    </div>
+                                    <br>
+                                    <div class="info-mail cf"><span style="color: #ffffff;"><a
+                                                    href="mailto:info@freshfish.lk" class="info-label"
+                                                    style="color: #ffffff;"><span class="icon-label"><img
+                                                            src="/templates/sj_megashop/images/icon/icon_map2.png"
+                                                            alt=""></span></a><a href="mailto:info@freshfish.lk"
+                                                                                 style="color: #ffffff;">info@freshfish.lk</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="bottom4" class="col-sm-3"style="padding-right: 100px">
+
+                    <div class="module  clearfix">
+                        <h3 class="modtitle">Find Us</h3>
+                        <div class="modcontent clearfix">
+                            <!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d126731.10281374092!2d79.888413!3d6.968332!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd1e2ffe1e5e39f4d!2sCentral+Fish+Market+Complex!5e0!3m2!1sen!2sus!4v1475568437238"
+                                    width="280" height="200" frameborder="0" style="border:0"
+                                    allowfullscreen=""></iframe><!-- END: Custom advanced (www.pluginaria.com) -->
+                        </div>
+                    </div>
+
+                </div>
+                <div id="bottom5" class="col-sm-3" style="padding-left: 10px">
+
+                    <div class="module  clearfix">
+                        <h3 class="modtitle">About Us</h3>
+                        <div class="modcontent clearfix">
+
+                            <p><span style="color: #ffffff;">Fishmart.lk is the first &amp; only full fledged Online Seafood Store that sells fresh seafood online &amp; provides delivery to most parts of areas in Colombo. We have well over 8 years of experience in the fishing industry &amp; we are a supplier of seafood to fish sellers, restaurants &amp; for other occasional all over in Colombo. Now, we've opened an online store to cater to households in Colombo.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="bottom6" class="col-sm-3">
+
+                    <div class="module  clearfix">
+                        <h3 class="modtitle">Feedback</h3>
+                        <form action="{{url('admin/feedback')}}" method="POST" enctype="multipart/form-data" id="feedback">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label style="color: white" for="name">Name</label>
+                                    <label style="color: white" for="num">Contact Number</label>
+                                    <label style="color: white" for="description">Say</label>
+
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="name" name="name" placeholder="Your name..">
+                                    <input type="text" id="number" name="number" placeholder="Your contact number..">
+                                    <textarea id="description" name="description" placeholder="Write something.." style="height:170px"></textarea>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary text-uppercase" type="submit">Submit</button>
+
+{{--                                <input type="submit" value="Submit">--}}
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+{{--        </div>--}}
+
+    </section>
+
+    <div class="container" style="padding-top: 10px">
+        <p class="m-0 text-center text-white">Copyright &copy; FishMart</p>
+    </div>
+
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendorHome/jquery/jquery.min.js"></script>
+<script src="vendorHome/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+

@@ -20,5 +20,13 @@ class HomeController extends Controller
             dump($e);
         }
 
-    }  
+    }
+
+    public function about(){
+        return view('about');
+    }
+
+    public function store(){
+        return view('store');
+    }
 }

@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  nav-text" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link  nav-text" href="{{url('/about')}}">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  nav-text" href="{{url('/store')}}">Store</a>
@@ -107,45 +107,13 @@
 <div class=" container-mod">
 
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
-         style="width: 100%; overflow: hidden">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/1.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/2.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/3.jpg" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/4.jpg" alt="Fourth slide">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
     <div class="row">
         <div class="col-sm-12">
             <!-- Section Title -->
             <div class="section-title" style="color: dimgrey;">
                 <img src="images/logo.png" style="height: 250px; width: 250px">
 
-                <h1 style="color: black; font-size: xx-large; font-weight: bold; ">Welcome ලෙල්ලම.lk</h1>
+                <h1 style="color: black; font-size: xx-large; font-weight: bold; "> ලෙල්ලම.lk -- Store --</h1>
                 <div class="divider"></div>
             </div>
         </div>
@@ -252,17 +220,6 @@
 
     </div>
     <!-- /.row -->
-
-    <div class="row">
-        <div class="col-sm-12">
-            <!-- Section Title -->
-            <div class="section-title" style="color: dimgrey;">
-                <h1 style="color: seashell; font-size: xx-large">Hot Deals</h1>
-                <div class="divider"></div>
-            </div>
-        </div>
-    </div>
-
 
     <div class="row" style="padding-left: 70px; padding-right: 70px">
 
