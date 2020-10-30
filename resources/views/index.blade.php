@@ -153,15 +153,16 @@
 
 
     <div class="row" style="padding-left: 70px; padding-right: 70px">
+        @foreach($data['main'] as $fish)
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/1.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[0]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#">Thalapath තලපත්</a>
+                        <a class="fish-name" href="#">{{$fish[0]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[0]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -172,12 +173,12 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/tuna.png" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[1]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#"> බලයා Tuna</a>
+                        <a class="fish-name" href="#">{{$fish[1]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[1]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -188,12 +189,12 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/0822.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[2]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#"> ඉස්සෝ Prawns</a>
+                        <a class="fish-name" href="#">{{$fish[2]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[2]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -201,54 +202,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/dallo.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">දැල්ලෝ Cuttle Fish </a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/4.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">කෙලවල්ලා Kelawalla</a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-uted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/hurulla.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">හුරුල්ලා Hurulla </a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
     </div>
     <!-- /.row -->
@@ -265,15 +219,16 @@
 
 
     <div class="row" style="padding-left: 70px; padding-right: 70px">
+        @foreach($data['hot'] as $fish)
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/1.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[0]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#">Thalapath තලපත්</a>
+                        <a class="fish-name" href="#">{{$fish[0]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[0]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -284,12 +239,12 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/tuna.png" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[1]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#"> බලයා Tuna</a>
+                        <a class="fish-name" href="#">{{$fish[1]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[1]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -300,12 +255,12 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/0822.jpg" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{asset($fish[2]->image)}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a class="fish-name" href="#"> ඉස්සෝ Prawns</a>
+                        <a class="fish-name" href="#">{{$fish[2]->name}}</a>
                     </h4>
-                    <h5>$24.99</h5>
+                    <h5>Rs {{$fish[2]->avg_price}}</h5>
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer">
@@ -314,53 +269,8 @@
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/dallo.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">දැල්ලෝ Cuttle Fish </a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="images/4.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">කෙලවල්ලා Kelawalla</a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-uted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top img-card" src="images/hurulla.jpg" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a class="fish-name" href="#">හුරුල්ලා Hurulla </a>
-                    </h4>
-                    <h5>$24.99</h5>
-                    <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-            </div>
-        </div>
 
     </div>
 

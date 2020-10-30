@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-9 col-lg-8 mx-auto">
                                 <h3 class="login-heading mb-4">Edit your profile here!</h3>
-                                <form action="{{url('dashboard/admin/post-editProfile')}}" method="POST" id="regForm">
+                                <form action="{{url('dashboard/admin/post-editProfile')}}" method="POST" enctype="multipart/form-data" id="regForm">
                                     {{ csrf_field() }}
                                     <div class="form-label-group" {{ $errors->has('name') ? ' has-error' : '' }}>
                                         <input type="text" id="inputName" name="name" class="form-control"
@@ -86,6 +86,18 @@
 
                                         @if ($errors->has('password'))
                                             <span class="error">{{ $errors->first('password') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <label class="col-md-4" align="right">Edit Profile Image</label>
+                                            <div class="col-md-8">
+                                                <input type="file" name="image" id="image"/>
+                                            </div>
+                                        </div>
+                                        @if ($errors->has('image'))
+                                            <span class="error">{{ $errors->first('image') }}</span>
                                         @endif
                                     </div>
 

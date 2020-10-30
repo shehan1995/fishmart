@@ -130,6 +130,46 @@ class AdminController extends Controller
         return view('dashboard/admin/viewFish',compact('user'),compact('details'));
     }
 
+    public function editFish($fishId){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+
+        $fish = Fish::findOrFail($fishId);
+        dump($fish);
+        return view('dashboard/admin/adminEditFish',compact('fish'),compact('details'));
+
+    }
+
+    public function postEditFish(Request $request){
+        try {
+            request()->validate([
+                'name' => 'required',
+                'avg_price' => 'required',
+                'image' => 'image|max:2048',
+            ]);
+            $data = $request->all();
+            $fish = Fish::findOrFail($data['id']);
+
+            try {
+                if ($data['image'] == null) {
+                    $data['image'] = $fish->image;
+                } else {
+                    $path = $request->file('image')->storeAs('public/fish', $fish->name);
+
+                    $data['image'] = "fish/{$fish->name}";
+                }
+            } catch (\Exception $er) {
+                $data['image'] = $fish->image;
+            }
+            $fish->update($data);
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+        return Redirect::to("/dashboard/admin/viewFish")->withSuccess('Great! You have Successfull');
+
+    }
+
     public function editProfile(){
         $user = auth()->user();
         $details['name']= $user->name;
@@ -141,6 +181,7 @@ class AdminController extends Controller
         $user = auth()->user();
         $details['name']= $user->name;
         $details['user_image'] = "storage/{$user->image}";
+        dump($details);
         return view('dashboard/admin/adminViewProfile',compact('user'),compact('details'));
     }
 
@@ -151,8 +192,22 @@ class AdminController extends Controller
                 'name' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|min:6',
+                'image' => 'image|max:2048',
             ]);
             $data = $request->all();
+
+            try {
+                if ($data['image'] == null) {
+                    $data['image'] = $user->image;
+                } else {
+                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+
+                    $data['image'] = "user/{$user->nic}";
+                }
+            } catch (\Exception $er) {
+                $data['image'] = $user->image;
+            }
+
             $data['password'] = Hash::make($data['password']);
             $show = User::findOrFail($user->id);
             $show->update($data);

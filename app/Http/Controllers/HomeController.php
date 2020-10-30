@@ -10,12 +10,50 @@ class HomeController extends Controller
     public function index()
     {
         try {
-            $data = array();
-            $sellingAdds = DB::table('selling_a_d_s')->where('status','pending')->orderBy('created_at','desc')->limit(5)->get();
-            $buyingAdds = DB::table('buying_a_d_s')->where('status','pending')->orderBy('created_at','desc')->limit(5)->get();
-            $data['sellingAdds'] = $sellingAdds;
-            $data['buyingAdds'] = $buyingAdds;
-            return view('index',compact($data));
+            $fishes= DB::table('fish')->orderBy('created_at','desc')->get();
+            $fishArr =[];
+            $fishFinal=[];
+            $count = 0;
+            $totCount=0;
+            foreach ($fishes as $fish){
+                if (($count<2) && ($totCount+1< count($fishes))) {
+                    array_push($fishArr, $fish);
+                    $fish->image = "storage/{$fish->image}";
+                    $count = $count + 1;
+
+                }else{
+                    $fish->image = "storage/{$fish->image}";
+                    array_push($fishArr,$fish);
+                    array_push($fishFinal,$fishArr);
+                    $fishArr=[];
+                    $count=0;
+                }
+                $totCount=$totCount+1;
+            }
+            $data['main'] = $fishFinal;
+
+            $fishes= DB::table('fish')->orderBy('amount','desc')->get();
+            $fishArr =[];
+            $fishFinal=[];
+            $count = 0;
+            $totCount=0;
+            foreach ($fishes as $fish){
+                if (($count<2) && ($totCount+1< count($fishes))) {
+                    array_push($fishArr, $fish);
+                    $fish->image = "storage/{$fish->image}";
+                    $count = $count + 1;
+
+                }else{
+                    $fish->image = "storage/{$fish->image}";
+                    array_push($fishArr,$fish);
+                    array_push($fishFinal,$fishArr);
+                    $fishArr=[];
+                    $count=0;
+                }
+                $totCount=$totCount+1;
+            }
+            $data['hot'] = $fishFinal;
+            return view('index',compact('data'));
         }catch (\Exception $e){
             dump($e);
         }
@@ -27,6 +65,43 @@ class HomeController extends Controller
     }
 
     public function store(){
-        return view('store');
+        $fishes= DB::table('fish')->orderBy('created_at','desc')->get();
+        $fishArr =[];
+        $fishFinal=[];
+        $count = 0;
+        $totCount=0;
+        foreach ($fishes as $fish){
+            if (($count<2) && ($totCount+1< count($fishes))) {
+                array_push($fishArr, $fish);
+                $fish->image = "storage/{$fish->image}";
+                $count = $count + 1;
+
+            }else{
+                $fish->image = "storage/{$fish->image}";
+                array_push($fishArr,$fish);
+                array_push($fishFinal,$fishArr);
+                $fishArr=[];
+                $count=0;
+            }
+            $totCount=$totCount+1;
+        }
+//        foreach ($fishes as $fish){
+//            if (($count<3) && ($totCount+1< count($fishes))) {
+//                array_push($fishArr, $fish);
+//                $count = $count + 1;
+//            }elseif ($totCount+1== count($fishes)){
+//                array_push($fishArr,$fish);
+//                array_push($fishFinal,$fishArr);
+//            }else{
+//                array_push($fishFinal,$fishArr);
+//                $fishArr=[];
+//                $count=1;
+//                array_push($fishArr,$fish);
+//            }
+//            dump($totCount);
+//            $totCount=$totCount+1;
+//        }
+        $data = $fishFinal;
+        return view('store',compact('data'));
     }
 }
