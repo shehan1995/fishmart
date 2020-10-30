@@ -109,7 +109,7 @@ class AdminController extends Controller
 
             $data['amount']=0;
 
-            $response = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
+            $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
             $data['image'] = $response;
 
 //            $fish = Fish::create($data);
