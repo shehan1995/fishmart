@@ -109,11 +109,10 @@ class AdminController extends Controller
 
             $data['amount']=0;
 
-            Cloudder::upload($request->file('image'));
-            $cloundary_upload = Cloudder::getResult();
-            $data['image'] = $cloundary_upload['url'];
+            $response = cloudinary()->upload($request->file('file')->getRealPath())->getSecurePath();
+            $data['image'] = $response;
 
-            $fish = Fish::create($data);
+//            $fish = Fish::create($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
         } catch (\Exception $e) {
 
