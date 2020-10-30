@@ -104,10 +104,13 @@ class AdminController extends Controller
                 'image' => 'required|image|max:2048',
             ]);
             $data = $request->all();
-            $path = $request->file('image')->storeAs('public/fish',$data['name']);
+//            $path = $request->file('image')->storeAs('public/fish',$data['name']);
 
             $data['amount']=0;
-            $data['image'] = "fish/{$data['name']}";
+
+            Cloudder::upload($request->file('image'));
+            $cloundary_upload = Cloudder::getResult();
+            $data['image'] = $cloundary_upload['url'];
 
             $fish = Fish::create($data);
             return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully added fish');
