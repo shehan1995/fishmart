@@ -90,7 +90,7 @@ class BuyerController extends Controller
     }
     public function editProfile(){
         $user = auth()->user();
-        $details['user_image'] ="storage/{$user->image}" ;
+        $details['user_image'] =$user->image;
         $details['name']=$user->name;
 
         return view('dashboard/buyer/buyerEditProfile',compact('user'),compact('details'));
@@ -118,7 +118,7 @@ class BuyerController extends Controller
 
     public function createAdd(){
         $user = auth()->user();
-        $details['user_image'] ="storage/{$user->image}" ;
+        $details['user_image'] =$user->image;
         $details['name']=$user->name;
 
         $fish =DB::table('fish')->get();
@@ -151,7 +151,7 @@ class BuyerController extends Controller
     public function viewSellingAdds(){
         $user = auth()->user();
 
-        $details['user_image'] ="storage/{$user->image}" ;
+        $details['user_image'] =$user->image ;
         $details['name']=$user->name;
 
         $sellingAdds = DB::table('selling_a_d_s') ->where(function($query) {
@@ -170,7 +170,7 @@ class BuyerController extends Controller
     public function viewBuyingAdds(){
         $user = auth()->user();
 
-        $details['user_image'] ="storage/{$user->image}" ;
+        $details['user_image'] =$user->image ;
         $details['name']=$user->name;
 
         $buyingAdds = DB::table('buying_a_d_s')->where('users_id',$user->id)->get();
@@ -198,7 +198,7 @@ class BuyerController extends Controller
 
     public function setOrder($sellingId){
         $user = auth()->user();
-        $details['user_image'] ="storage/{$user->image}" ;
+        $details['user_image'] =$user->image ;
         $details['name']=$user->name;
 
         $sellingAdd = DB::table('selling_a_d_s')->where('id',$sellingId)->first();
@@ -241,7 +241,7 @@ class BuyerController extends Controller
     public function viewMyOrders(){
         try {
             $user = auth()->user();
-            $details['user_image'] ="storage/{$user->image}" ;
+            $details['user_image'] =$user->image ;
             $details['name']=$user->name;
 
             $myOrders = DB::table('orders')->where('buyer_id',$user->id)->get();

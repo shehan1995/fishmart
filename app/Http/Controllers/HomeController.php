@@ -18,11 +18,10 @@ class HomeController extends Controller
             foreach ($fishes as $fish){
                 if (($count<2) && ($totCount+1< count($fishes))) {
                     array_push($fishArr, $fish);
-                    $fish->image = "storage/{$fish->image}";
                     $count = $count + 1;
 
                 }else{
-                    $fish->image = "storage/{$fish->image}";
+//                    $fish->image = $fish->image;
                     array_push($fishArr,$fish);
                     array_push($fishFinal,$fishArr);
                     $fishArr=[];
@@ -40,11 +39,11 @@ class HomeController extends Controller
             foreach ($fishes as $fish){
                 if (($count<2) && ($totCount+1< count($fishes))) {
                     array_push($fishArr, $fish);
-                    $fish->image = "storage/{$fish->image}";
+//                    $fish->image = $fish->image;
                     $count = $count + 1;
 
                 }else{
-                    $fish->image = "storage/{$fish->image}";
+//                    $fish->image = "storage/{$fish->image;
                     array_push($fishArr,$fish);
                     array_push($fishFinal,$fishArr);
                     $fishArr=[];
@@ -73,11 +72,11 @@ class HomeController extends Controller
         foreach ($fishes as $fish){
             if (($count<2) && ($totCount+1< count($fishes))) {
                 array_push($fishArr, $fish);
-                $fish->image = "storage/{$fish->image}";
+//                $fish->image = "storage/{$fish->image}";
                 $count = $count + 1;
 
             }else{
-                $fish->image = "storage/{$fish->image}";
+//                $fish->image = "storage/{$fish->image}";
                 array_push($fishArr,$fish);
                 array_push($fishFinal,$fishArr);
                 $fishArr=[];

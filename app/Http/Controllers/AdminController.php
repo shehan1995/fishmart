@@ -92,7 +92,7 @@ class AdminController extends Controller
     public function createFish(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         return view('dashboard/admin/adminFish',compact('details'));
     }
     public function postCreateFish(Request $request)
@@ -122,11 +122,11 @@ class AdminController extends Controller
     public function viewFish(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
 
         $fishes = DB::table('fish')->get();
         foreach ($fishes as $fish) {
-            $img = "storage/{$fish->image}";
+            $img = $fish->image;
             $fish->img=$img;
         }
         $details['fishes']=$fishes;
@@ -136,7 +136,7 @@ class AdminController extends Controller
     public function editFish($fishId){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
 
         $fish = Fish::findOrFail($fishId);
         dump($fish);
@@ -158,9 +158,8 @@ class AdminController extends Controller
                 if ($data['image'] == null) {
                     $data['image'] = $fish->image;
                 } else {
-                    $path = $request->file('image')->storeAs('public/fish', $fish->name);
-
-                    $data['image'] = "fish/{$fish->name}";
+                    $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+                    $data['image'] = $response;
                 }
             } catch (\Exception $er) {
                 $data['image'] = $fish->image;
@@ -176,14 +175,14 @@ class AdminController extends Controller
     public function editProfile(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
 
         return view('dashboard/admin/adminEditProfile',compact('user'),compact('details'));
     }
     public function viewProfile(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         dump($details);
         return view('dashboard/admin/adminViewProfile',compact('user'),compact('details'));
     }
@@ -203,9 +202,11 @@ class AdminController extends Controller
                 if ($data['image'] == null) {
                     $data['image'] = $user->image;
                 } else {
-                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+//                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+                    $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+                    $data['image'] = $response;
 
-                    $data['image'] = "user/{$user->nic}";
+//                    $data['image'] = "user/{$user->nic}";
                 }
             } catch (\Exception $er) {
                 $data['image'] = $user->image;
@@ -238,7 +239,7 @@ class AdminController extends Controller
     public function viewFeedback(){
         $user = auth()->user();
         $details['name']= $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         $details['feedbacks'] = DB::table('feedback')->get();
         return view('dashboard/admin/viewFeedback',compact('user'),compact('details'));
     }

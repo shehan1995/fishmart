@@ -94,7 +94,7 @@ class SellerController extends Controller
     {
         $user = auth()->user();
         $details['name'] = $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         return view('dashboard/seller/sellerEditProfile', compact('user'), compact('details'));
     }
 
@@ -102,7 +102,7 @@ class SellerController extends Controller
     {
         $user = auth()->user();
         $details['name'] = $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         return view('dashboard/seller/sellerViewProfile', compact('user'), compact('details'));
     }
 
@@ -122,9 +122,11 @@ class SellerController extends Controller
                 if ($data['image'] == null) {
                     $data['image'] = $user->image;
                 } else {
-                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+//                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+                    $response = cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
+                    $data['image'] = $response;
 
-                    $data['image'] = "user/{$user->nic}";
+//                    $data['image'] = "user/{$user->nic}";
                 }
 
             } catch (\Exception $er) {
@@ -147,7 +149,7 @@ class SellerController extends Controller
     {
         $user = auth()->user();
         $details['name'] = $user->name;
-        $details['user_image'] = "storage/{$user->image}";
+        $details['user_image'] = $user->image;
         $fish = DB::table('fish')->get();
         return view('dashboard/seller/sellerAdd', compact('fish'), compact('details'));
     }
@@ -184,7 +186,7 @@ class SellerController extends Controller
         try {
             $user = auth()->user();
             $details['name'] = $user->name;
-            $details['user_image'] = "storage/{$user->image}";
+            $details['user_image'] = $user->image;
 
             $data = array();
             $myAdds = DB::table('selling_a_d_s')->where('users_id', $user->id)->get();
@@ -209,7 +211,7 @@ class SellerController extends Controller
         try {
             $user = auth()->user();
             $details['name'] = $user->name;
-            $details['user_image'] = "storage/{$user->image}";
+            $details['user_image'] = $user->image;
 
             $data = array();
             $myAdds = DB::table('selling_a_d_s')->where('users_id', $user->id)->get();
@@ -234,7 +236,7 @@ class SellerController extends Controller
         try {
             $user = auth()->user();
             $details['name'] = $user->name;
-            $details['user_image'] = "storage/{$user->image}";
+            $details['user_image'] = $user->image;
 
             $myAdds = DB::table('selling_a_d_s')->where('users_id', $user->id)->get();
             foreach ($myAdds as $myAdd) {
@@ -252,7 +254,7 @@ class SellerController extends Controller
         try {
             $user = auth()->user();
             $details['name'] = $user->name;
-            $details['user_image'] = "storage/{$user->image}";
+            $details['user_image'] = $user->imagei9;
 
             $add = SellingAD::findOrFail($sellingAdId);
             if($add) {
@@ -296,7 +298,7 @@ class SellerController extends Controller
         try {
             $user = auth()->user();
             $details['name'] = $user->name;
-            $details['user_image'] = "storage/{$user->image}";
+            $details['user_image'] = $user->image;
 
             $data = array();
             $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','pending')->get();

@@ -65,11 +65,8 @@ class AuthController extends Controller
         ]);
         $data = $request->all();
 
-        $path = $request->file('user_image')->storeAs('public/user',$data['nic']);
-
-
-        $data['user_image'] = "user/{$data['nic']}";
-
+        $response = cloudinary()->upload($request->file('user_image')->getRealPath())->getSecurePath();
+        $data['user_image'] = $response;
 
         try {
             $check = $this->create($data);
@@ -114,9 +111,9 @@ class AuthController extends Controller
         //get user details
         $user = auth()->user();
         try {
-            $details['user_image'] ="storage/{$user->image}" ;
+            $details['user_image'] =$user->image;
         }catch (Exception $e){
-            $details['user_image'] ="storage/default_user.png" ;
+            $details['user_image'] ="images/default_user.png" ;
             return dump($e);
         }
 //        $details['user_image'] ="storage/default_user.png" ;
@@ -215,9 +212,9 @@ class AuthController extends Controller
         $user = auth()->user();
 
         try {
-            $details['user_image'] ="storage/{$user->image}" ;
+            $details['user_image'] =$user->image ;
         }catch (Exception $e){
-            $details['user_image'] ="storage/default_user.png" ;
+            $details['user_image'] ="images/default_user.png" ;
             return dump($e);
         }
 
@@ -429,9 +426,9 @@ class AuthController extends Controller
         $user = auth()->user();
         $details['name'] = $user->name;
         try {
-            $details['user_image'] ="storage/{$user->image}" ;
+            $details['user_image'] =$user->image ;
         }catch (Exception $e){
-            $details['user_image'] ="storage/default_user.png" ;
+            $details['user_image'] ="images/default_user.png" ;
             return dump($e);
         }
         $orders = DB::table('orders')->where('buyer_id', $user->id)->get();

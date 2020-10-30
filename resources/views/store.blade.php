@@ -226,7 +226,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{asset($fish[0]->image)}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{$fish[0]->image}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a class="fish-name" href="#">{{$fish[0]->name}}</a>
@@ -242,7 +242,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{asset($fish[1]->image)}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{$fish[1]->image}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a class="fish-name" href="#"> {{$fish[1]->name}}</a>
@@ -258,7 +258,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{asset($fish[2]->image)}}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{$fish[2]->image}}" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a class="fish-name" href="#">{{$fish[2]->name}}</a>
