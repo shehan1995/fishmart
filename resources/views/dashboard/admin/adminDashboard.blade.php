@@ -39,7 +39,7 @@
       <div class="sidebar-brand-icon rotate-n-15">
         <img src="{{asset('images/logo.png')}}" style="height: 50px; width: 50px">
       </div>
-      <div class="sidebar-brand-text mx-3">ADMIN {{$details['name']}}<sup>2</sup></div>
+      <div class="sidebar-brand-text mx-3">ADMIN {{$details['name']}}</div>
     </a>
 
     <!-- Divider -->
@@ -102,6 +102,19 @@
         <span>View Feedbacks</span></a>
     </li>
 
+
+    <!-- Nav Item - Fish Add -->
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('dashboard/admin/sendAlert')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Post Alerts</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('dashboard/admin/viewAlerts')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>View Alerts</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

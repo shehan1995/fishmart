@@ -299,7 +299,7 @@ class SellerController extends Controller
             $details['user_image'] = "storage/{$user->image}";
 
             $data = array();
-            $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','pending')->get();
+            $buyingAdds = DB::table('buying_a_d_s')->where('status', '=','open')->get();
             foreach ($buyingAdds as $buyingAdd) {
                 $fishName = DB::table('fish')->where('id', $buyingAdd->fish_id)->first();
                 $buyer = DB::table('users')->where('id', $buyingAdd->users_id)->get()->first();
@@ -313,6 +313,14 @@ class SellerController extends Controller
         } catch (\Exception $e) {
             return $e->getMessage();
         }
+    }
+
+    public function viewAlerts(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        $details['alerts'] = DB::table('alerts')->where('categary','=','Seller')->where('status','=','open')->get();
+        return view('dashboard/seller/viewAlerts',compact('user'),compact('details'));
     }
 
 }

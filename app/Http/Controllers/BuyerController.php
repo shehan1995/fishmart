@@ -256,4 +256,11 @@ class BuyerController extends Controller
             return $e->getMessage();
         }
     }
+    public function viewAlerts(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        $details['alerts'] = DB::table('alerts')->where('categary','=','Buyer')->where('status','=','open')->get();
+        return view('dashboard/buyer/viewAlerts',compact('user'),compact('details'));
+    }
 }

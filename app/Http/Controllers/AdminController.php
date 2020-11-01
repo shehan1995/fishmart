@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alert;
+use App\Models\Alerts;
 use App\Models\Fish;
 use App\Models\Feedback;
 use App\User;
@@ -136,7 +138,6 @@ class AdminController extends Controller
         $details['user_image'] = "storage/{$user->image}";
 
         $fish = Fish::findOrFail($fishId);
-        dump($fish);
         return view('dashboard/admin/adminEditFish',compact('fish'),compact('details'));
 
     }
@@ -181,7 +182,6 @@ class AdminController extends Controller
         $user = auth()->user();
         $details['name']= $user->name;
         $details['user_image'] = "storage/{$user->image}";
-        dump($details);
         return view('dashboard/admin/adminViewProfile',compact('user'),compact('details'));
     }
 
@@ -232,6 +232,20 @@ class AdminController extends Controller
         }
     }
 
+    public function postSendAlert(Request $request){
+        dump($request->all());
+        try {
+            $data['subject'] = $request->subject;
+            $data['message'] = $request->message;
+            $data['categary'] = $request->categary;
+            $data['status'] = "open";
+            Alerts::create($data);
+            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully Submit');
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
     public function viewFeedback(){
         $user = auth()->user();
         $details['name']= $user->name;
@@ -240,8 +254,22 @@ class AdminController extends Controller
         return view('dashboard/admin/viewFeedback',compact('user'),compact('details'));
     }
 
+    public function viewAlerts(){
+            $user = auth()->user();
+            $details['name']= $user->name;
+            $details['user_image'] = "storage/{$user->image}";
+            $details['alerts'] = DB::table('alerts')->get();
+            return view('dashboard/admin/viewAlerts',compact('user'),compact('details'));
+        }
+
+    public function sendAlert(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        return view('dashboard/admin/postAlert',compact('user'),compact('details'));
+    }
+
     public function updateFeedback($feedbackId){
-        dump($feedbackId);
         try {
 
             $feedback = Feedback::findOrFail($feedbackId);
@@ -255,6 +283,22 @@ class AdminController extends Controller
         }
 
         return Redirect::to("/dashboard/admin/viewFeedbacks")->withSuccess('Great! You have Successfully loggedin');
+
+    }
+
+    public function updateAlert($alertId){
+        try {
+
+            $alert = Alerts::findOrFail($alertId);
+            if($alert) {
+                $alert->status = 'close';
+                $alert->save();
+            }
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+        return Redirect::to("/dashboard/admin/viewAlerts")->withSuccess('Great! You have Successfully loggedin');
 
     }
 }

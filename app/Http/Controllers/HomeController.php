@@ -65,7 +65,7 @@ class HomeController extends Controller
     }
 
     public function store(){
-        $fishes= DB::table('fish')->orderBy('created_at','desc')->get();
+        $fishes= DB::table('fish')->orderBy('amount','desc')->get();
         $fishArr =[];
         $fishFinal=[];
         $count = 0;
