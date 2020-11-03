@@ -57,7 +57,7 @@
 {{--          <i class="fas fa-laugh-wink"></i>--}}
           <img src="{{asset('images/logo.png')}}" style="height: 50px; width: 50px">
         </div>
-        <div class="sidebar-brand-text mx-3">BUYER {{$details['name']}}<sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">BUYER {{$details['name']}}</div>
       </a>
 
       <!-- Divider -->
