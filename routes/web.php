@@ -73,5 +73,6 @@ Route::get('dashboard/buyer/profile-edit','BuyerController@editProfile');
 Route::get('dashboard/buyer/viewBuyingAdds','BuyerController@viewBuyingAdds');
 Route::get('dashboard/buyer/cancelBuyingAd/{buyingAdId}','BuyerController@cancelBuyingAdd')->name('cancelBuyingAd');
 Route::get('dashboard/buyer/viewAlerts','BuyerController@viewAlerts');
+Route::get('dashboard/buyer/viewProfile','BuyerController@viewProfile');
 
 

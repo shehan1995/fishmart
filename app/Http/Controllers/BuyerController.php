@@ -103,8 +103,22 @@ class BuyerController extends Controller
                 'name' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|min:6',
+                'image' => 'image|max:2048',
             ]);
             $data = $request->all();
+
+            try {
+                if ($data['image'] == null) {
+                    $data['image'] = $user->image;
+                } else {
+                    $path = $request->file('image')->storeAs('public/user', $user->nic);
+
+                    $data['image'] = "user/{$user->nic}";
+                }
+            } catch (\Exception $er) {
+                $data['image'] = $user->image;
+            }
+
             $data['password'] = Hash::make($data['password']);
             $show = User::findOrFail($user->id);
             $show->update($data);
@@ -262,5 +276,12 @@ class BuyerController extends Controller
         $details['user_image'] = "storage/{$user->image}";
         $details['alerts'] = DB::table('alerts')->where('categary','=','Buyer')->where('status','=','open')->get();
         return view('dashboard/buyer/viewAlerts',compact('user'),compact('details'));
+    }
+
+    public function viewProfile(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        return view('dashboard/buyer/buyerViewProfile',compact('user'),compact('details'));
     }
 }
