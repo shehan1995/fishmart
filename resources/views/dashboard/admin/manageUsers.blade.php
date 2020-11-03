@@ -35,6 +35,7 @@
                 </thead>
                 <tbody class="tb-body">
                 @foreach($details['allUsers'] as $user)
+                    @if($user->categary != "Admin")
                     <tr>
                         {{--                    <th scope="row" class="counterCell">1</th>--}}
                         <td>{{$user->id}}</td>
@@ -53,6 +54,7 @@
                             <a class="btn btn-success" href="{{route('blockUser',['userId'=>$user->id,'status'=>1])}}">Unblock</a>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>
