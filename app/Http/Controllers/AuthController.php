@@ -49,6 +49,11 @@ class AuthController extends Controller
         $credentials = $request->only('nic', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
+            $user = auth()->user();
+            if($user->status == 0){
+                    return redirect()->back()->withErrors(['password' => 'You have BLOCKED by Admin \n
+                    Please contact ADMIN thorugh feedback section' ]);
+            }
             return redirect()->intended('dashboard');
         }
         return redirect()->back()->withInput()->withErrors(['nic' => 'Sorry nic and password not matched']);
@@ -69,7 +74,7 @@ class AuthController extends Controller
 
 
         $data['user_image'] = "user/{$data['nic']}";
-
+        $data['status'] =1;
 
         try {
             $check = $this->create($data);

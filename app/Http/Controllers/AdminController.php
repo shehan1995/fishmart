@@ -269,6 +269,14 @@ class AdminController extends Controller
         return view('dashboard/admin/postAlert',compact('user'),compact('details'));
     }
 
+     public function manageUsers(){
+        $user = auth()->user();
+        $details['name']= $user->name;
+        $details['user_image'] = "storage/{$user->image}";
+        $details['allUsers'] = DB::table('users')->get();
+        return view('dashboard/admin/manageUsers',compact('user'),compact('details'));
+    }
+
     public function updateFeedback($feedbackId){
         try {
 
@@ -283,6 +291,21 @@ class AdminController extends Controller
         }
 
         return Redirect::to("/dashboard/admin/viewFeedbacks")->withSuccess('Great! You have Successfully loggedin');
+
+    }
+
+    public function blockUser($userId,$status){
+        try {
+
+            $user = User::findOrFail($userId);
+            $user->status = $status;
+            $user->save();
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+
+        return Redirect::to("/dashboard/admin/manageUsers")->withSuccess('Great! You have Successfully loggedin');
 
     }
 

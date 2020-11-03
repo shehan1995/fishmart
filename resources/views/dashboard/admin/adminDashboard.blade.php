@@ -115,6 +115,12 @@
         <i class="fas fa-fw fa-table"></i>
         <span>View Alerts</span></a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{url('dashboard/admin/manageUsers')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Manage Users</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

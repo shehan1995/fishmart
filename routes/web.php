@@ -41,9 +41,11 @@ Route::post('dashboard/admin/post-editFish','AdminController@postEditFish');
 Route::get('dashboard/admin/viewFeedbacks','AdminController@viewFeedback');
 Route::get('dashboard/admin/viewAlerts','AdminController@viewAlerts');
 Route::get('dashboard/admin/sendAlert','AdminController@sendAlert');
+Route::get('dashboard/admin/manageUsers','AdminController@manageUsers');
 Route::post('dashboard/admin/post-postAlert','AdminController@postSendAlert');
 Route::get('dashboard/admin/updateFeedback/{feedbackId}','AdminController@updateFeedback')->name('updateFeedback');
 Route::get('dashboard/admin/updateAlert/{alertId}','AdminController@updateAlert')->name('updateAlert');
+Route::get('dashboard/admin/blockUser/{userId}/{status}','AdminController@blockUser')->name('blockUser');
 
 Route::get('dashboard/seller','AuthController@sellerDashboard');
 Route::get('dashboard/seller/profile-edit','SellerController@editProfile');
