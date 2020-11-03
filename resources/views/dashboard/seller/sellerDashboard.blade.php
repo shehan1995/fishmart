@@ -78,10 +78,6 @@
         <hr class="sidebar-divider">
 
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
-        </div>
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
