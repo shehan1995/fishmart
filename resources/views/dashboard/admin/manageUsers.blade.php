@@ -18,7 +18,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 style="font-size: 70px; font-weight: bold" class="h3 mb-0 text-white">Feedback</h1>
+            <h1 style="font-size: 70px; font-weight: bold" class="h3 mb-0 text-white">Manage Users</h1>
         </div>
 
         <!-- Content Row -->
