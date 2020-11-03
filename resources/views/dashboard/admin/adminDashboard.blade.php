@@ -70,8 +70,6 @@
           <a class="collapse-item" href="{{'/login'}}">Login</a>
           <a class="collapse-item" href="{{'/registration'}}">Register</a>
           <div class="collapse-divider"></div>
-          <h6 class="collapse-header">Other Pages:</h6>
-          <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
       </div>
     </li>
