@@ -41,7 +41,11 @@
                         <td>{{$user->categary}}</td>
                         <td>{{$user->nic}}</td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->status}}</td>
+                        @if($user->status == 1)
+                            <td>Active</td>
+                        @else
+                            <td>Blocked</td>
+                        @endif
                         <td>
                             <a class="btn btn-danger" href="{{route('blockUser',['userId'=>$user->id, 'status'=>0])}}">Block</a>
                         </td>
