@@ -20,7 +20,7 @@
                 <div class="container card card-modified">
                     <div class="row">
                         <div class="col-md-9 col-lg-8 mx-auto">
-                            <h3 class="login-heading mb-4">Add New Fish Here</h3>
+                            <h3 class="login-heading mb-4">Post an Alert Here</h3>
                             <form action="{{url('dashboard/admin/post-postAlert')}}" method="POST" enctype="multipart/form-data" id="regForm">
                                 {{ csrf_field() }}
                                 <div class="form-label-group">

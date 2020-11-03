@@ -233,7 +233,6 @@ class AdminController extends Controller
     }
 
     public function postSendAlert(Request $request){
-        dump($request->all());
         try {
             $data['subject'] = $request->subject;
             $data['message'] = $request->message;
