@@ -77,33 +77,6 @@
             <p>Back to Home <a href="{{url('/')}}">Home</a></p>
         </form>
         </div>
-
-{{--        @error('failed')--}}
-{{--        <div class="modal" id="myModal">--}}
-{{--            <div class="modal-dialog">--}}
-{{--                <div class="modal-content">--}}
-
-{{--                    <!-- Modal Header -->--}}
-{{--                    <div class="modal-header">--}}
-{{--                        <h4 class="modal-title">Submit Order</h4>--}}
-{{--                        <button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-{{--                    </div>--}}
-
-{{--                    <!-- Modal body -->--}}
-{{--                    <div class="modal-body">--}}
-{{--                        Do you want to submit order for review--}}
-{{--                    </div>--}}
-
-{{--                    <!-- Modal footer -->--}}
-{{--                    <div class="modal-footer">--}}
-{{--                        <button type="submit" class="btn btn-primary" >Submit</button>--}}
-{{--                        <button type="submit" class="btn btn-danger" data-dismiss="modal" >Close</button>--}}
-{{--                    </div>--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        @enderror--}}
       
 </body>
 </html>
