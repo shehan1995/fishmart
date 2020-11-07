@@ -21,7 +21,7 @@ class HomeController extends Controller
                     $fish->image = "storage/{$fish->image}";
                     $count = $count + 1;
 
-                }else{
+                }elseif ($totCount+1< count($fishes)){
                     $fish->image = "storage/{$fish->image}";
                     array_push($fishArr,$fish);
                     array_push($fishFinal,$fishArr);
@@ -43,7 +43,7 @@ class HomeController extends Controller
                     $fish->image = "storage/{$fish->image}";
                     $count = $count + 1;
 
-                }else{
+                }elseif ($totCount+1< count($fishes)){
                     $fish->image = "storage/{$fish->image}";
                     array_push($fishArr,$fish);
                     array_push($fishFinal,$fishArr);
@@ -53,7 +53,8 @@ class HomeController extends Controller
                 $totCount=$totCount+1;
             }
             $data['hot'] = $fishFinal;
-            return view('index',compact('data'));
+            dump($data);
+//            return view('index',compact('data'));
         }catch (\Exception $e){
             dump($e);
         }
@@ -76,7 +77,7 @@ class HomeController extends Controller
                 $fish->image = "storage/{$fish->image}";
                 $count = $count + 1;
 
-            }else{
+            }elseif ($totCount+1< count($fishes)){
                 $fish->image = "storage/{$fish->image}";
                 array_push($fishArr,$fish);
                 array_push($fishFinal,$fishArr);
