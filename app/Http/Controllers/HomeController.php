@@ -53,8 +53,8 @@ class HomeController extends Controller
                 $totCount=$totCount+1;
             }
             $data['hot'] = $fishFinal;
-            dump($data);
-//            return view('index',compact('data'));
+//            dump($data);
+            return view('index',compact('data'));
         }catch (\Exception $e){
             dump($e);
         }

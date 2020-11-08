@@ -150,6 +150,9 @@ class AuthController extends Controller
             $details['sellingConfirmed'] = 0;
             $details['sellingInactive'] = 0;
         }
+        $details['sellingPendingCount'] = $sellingPending;
+        $details['sellingConfirmedCount'] = $sellingConfirmed;
+        $details['sellingInactiveCount'] = $sellingInactive;
 
         $buyningOpen = 0;
         $buyingCancel = 0;
@@ -170,6 +173,8 @@ class AuthController extends Controller
             $details['buyingOpen'] = 0;
             $details['buyingCancel'] =0;
         }
+        $details['buyingOpenCount'] = $buyningOpen;
+        $details['buyingCancelCount'] = $buyingCancel;
 
 
         $sellers = 0;
@@ -189,6 +194,8 @@ class AuthController extends Controller
             $details['sellers'] =0;
             $details['buyers'] = 0;
         }
+        $details['sellersCount'] = $sellers;
+        $details['buyersCount'] = $buyer;
 
         $details['users'] = count($users);
 

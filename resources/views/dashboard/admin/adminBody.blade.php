@@ -97,15 +97,15 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Selling Advertisemets</div>
-                                <h5 class="m-b-30 f-w-700">Pending</h5>
+                                <h5 class="m-b-30 f-w-700">Pending {{$details['sellingPendingCount']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$details['sellingPending']}}%"></div>
                                 </div>
-                                <h5 class="m-b-30 f-w-700">Confirmed</h5>
+                                <h5 class="m-b-30 f-w-700">Confirmed {{$details['sellingConfirmedCount']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$details['sellingConfirmed']}}%"></div>
                                 </div>
-                                <h5 class="m-b-30 f-w-700">Inactive</h5>
+                                <h5 class="m-b-30 f-w-700">Inactive {{$details['sellingInactiveCount']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$details['sellingInactive']}}%"></div>
                                 </div>
@@ -125,11 +125,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Buying Advertisements</div>
-                                <h5 class="m-b-30 f-w-700">Open</h5>
+                                <h5 class="m-b-30 f-w-700">Open {{$details['buyingOpenCount']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$details['buyingOpen']}}%"></div>
                                 </div>
-                                <h5 class="m-b-30 f-w-700">Cancelled</h5>
+                                <h5 class="m-b-30 f-w-700">Cancelled {{$details['buyingCancelCount']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$details['buyingCancel']}}%"></div>
                                 </div>
@@ -154,11 +154,11 @@
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-white">50%</div>
                                     </div>
                                     <div class="col">
-                                        <h5 class="m-b-30 f-w-700">Sellers</h5>
+                                        <h5 class="m-b-30 f-w-700">Sellers {{$details['sellersCount']}}</h5>
                                         <div class="progress">
                                             <div class="progress-bar bg-c-red" style="width:{{$details['sellers']}}%"></div>
                                         </div>
-                                        <h5 class="m-b-30 f-w-700">Buyers</h5>
+                                        <h5 class="m-b-30 f-w-700">Buyers {{$details['buyersCount']}}</h5>
                                         <div class="progress">
                                             <div class="progress-bar bg-c-red" style="width:{{$details['buyers']}}%"></div>
                                         </div>
@@ -181,7 +181,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Fish Stock</div>
                                 @foreach($details['fish'] as $fish)
-                                <h5 class="m-b-30 f-w-700">{{$fish['name']}}</h5>
+                                <h5 class="m-b-30 f-w-700">{{$fish['name']}}  {{$fish['count']}}</h5>
                                 <div class="progress">
                                     <div class="progress-bar bg-c-red" style="width:{{$fish['fish_bar']}}%"></div>
                                 </div>
