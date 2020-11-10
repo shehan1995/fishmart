@@ -175,6 +175,9 @@ class BuyerController extends Controller
         foreach ($sellingAdds as $sellingAdd){
             $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
             $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
+            if($seller->status == 0){
+                continue;
+            }
             $sellingAdd->fish_name = $fishName->name;
             $sellingAdd->user = $seller->name;
         }

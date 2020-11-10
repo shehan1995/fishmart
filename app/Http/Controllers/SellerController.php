@@ -304,6 +304,9 @@ class SellerController extends Controller
                 $fishName = DB::table('fish')->where('id', $buyingAdd->fish_id)->first();
                 $buyer = DB::table('users')->where('id', $buyingAdd->users_id)->get()->first();
                 $buyingAdd->buyer = $buyer->name;
+                if ($buyer->status == 0){
+                    continue;
+                }
                 $buyingAdd->fish_name = $fishName->name;
                 $addArray = array();
                 $addArray['adds'] = $buyingAdd;
