@@ -78,7 +78,7 @@ class AuthController extends Controller
 
         try {
             $check = $this->create($data);
-            return Redirect::to("/dashboard")->withSuccess('Great! You have Successfully loggedin');
+            return Redirect::to("/")->withSuccess('Great! You have Successfully loggedin');
         } catch (\Exception $e) {
         dump($e->getMessage());
             return redirect()->back()->withInput()->withErrors(['nic' => $e->getMessage()]);

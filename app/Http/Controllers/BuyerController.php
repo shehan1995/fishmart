@@ -168,18 +168,20 @@ class BuyerController extends Controller
         $details['user_image'] ="storage/{$user->image}" ;
         $details['name']=$user->name;
 
-        $sellingAdds = DB::table('selling_a_d_s') ->where(function($query) {
+        $sellingAdds = array();
+        $sellingAds = DB::table('selling_a_d_s') ->where(function($query) {
             $query->where('status', 'ordered')
                 ->orWhere('status', 'pending');
         })->get();
-        foreach ($sellingAdds as $sellingAdd){
+        foreach ($sellingAds as $sellingAdd){
             $seller = DB::table('users')->where('id',$sellingAdd->users_id)->first();
             $fishName=DB::table('fish')->where('id',$sellingAdd->fish_id)->first();
-            if($seller->status == 0){
-                continue;
-            }
+
             $sellingAdd->fish_name = $fishName->name;
             $sellingAdd->user = $seller->name;
+            if($seller->status != 0){
+                array_push($sellingAdds, $sellingAdd);
+            }
         }
        return view('dashboard/buyer/viewSellingAdds',compact('details'),compact('sellingAdds'));
     }
