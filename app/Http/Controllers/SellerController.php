@@ -237,9 +237,12 @@ class SellerController extends Controller
             $details['user_image'] = "storage/{$user->image}";
 
             $myAdds = DB::table('selling_a_d_s')->where('users_id', $user->id)->get();
+            $count=1;
             foreach ($myAdds as $myAdd) {
                 $fishName = DB::table('fish')->where('id', $myAdd->fish_id)->first();
                 $myAdd->fish_name = $fishName->name;
+                $myAdd->id = $count;
+                $count=$count+1;
             }
 
             return view('dashboard/seller/viewMyAdds', compact('myAdds'), compact('details'));

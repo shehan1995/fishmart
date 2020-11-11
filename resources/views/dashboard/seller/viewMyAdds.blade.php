@@ -26,7 +26,7 @@
                 <table class="table table-striped">
                     <thead class="tb-header">
                     <tr>
-                        <th scope="col">Add ID</th>
+                        <th scope="col">Add ID</th  >
                         <th scope="col">Fish Name</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Price</th>
@@ -39,7 +39,7 @@
 
                     @foreach($myAdds as $add)
                         <tr>
-                            {{--                    <th scope="row" class="counterCell">1</th>--}}
+                                                <th scope="row" class="counterCell">1</th>
                             <td>{{$add->id}}</td>
                             <td>{{$add->fish_name}}</td>
                             <td>{{$add->amount}}</td>
