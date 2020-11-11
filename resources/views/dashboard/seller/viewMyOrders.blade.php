@@ -25,7 +25,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Add ID</th>
+                    <th scope="col">Buyer Name</th>
                     <th scope="col">Fish Name</th>
                     <th scope="col">Remaining Amount</th>
                     <th scope="col">Price</th>
