@@ -252,7 +252,7 @@ class AuthController extends Controller
 
         //set for dashboard parameters
         $details['pendingAdds'] = $sellingPending;
-        if ($sellingSold!=0 && $sellingPending!=0 && $sellingOrdered!=0){
+        if ($sellingSold!=0 || $sellingPending!=0 || $sellingOrdered!=0){
             $details['advertisements'] = ($sellingSold * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
             $details['openStatus'] = ($sellingPending * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
             $details['orderedStatus'] = ($sellingOrdered * 100) / ($sellingSold + $sellingPending + $sellingOrdered);
