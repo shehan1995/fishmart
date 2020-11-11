@@ -191,8 +191,8 @@ class SellerController extends Controller
             foreach ($myAdds as $myAdd) {
                 $fishName = DB::table('fish')->where('id', $myAdd->fish_id)->first();
                 $orders = DB::table('orders')->where([['selling_id', $myAdd->id], ['status', 'ordered']])->get();
-                $buyerAdd = DB::table('buying_a_d_s')->where('id',$orders->buying_id)->first();
-                $buyer = DB::table('users')->where('id', $buyerAdd->users_id)->get()->first();
+//                $buyerAdd = DB::table('buying_a_d_s')->where('id',$orders->buyer_id)->first();
+                $buyer = DB::table('users')->where('id', $orders->buyer_id)->get()->first();
 
                 $myAdd->orders = $orders;
                 $myAdd->buyer = $buyer->name;
